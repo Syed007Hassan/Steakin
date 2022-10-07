@@ -1,0 +1,197 @@
+/*------------------------------------*\
+    #Team
+\*------------------------------------*/
+.team{
+	padding-bottom: 80px;
+}
+/* Team shadow */ 
+.team-shadow .member{
+    -webkit-box-shadow: 0 0 18px rgba(40, 40, 40, 0.12);
+    -moz-box-shadow: 0 0 18px rgba(40, 40, 40, 0.12);
+    -ms-box-shadow: 0 0 18px rgba(40, 40, 40, 0.12);
+    box-shadow: 0 0 18px rgba(40, 40, 40, 0.12);
+	border-radius: 2px;
+}
+
+.member {
+  text-align: center;
+  overflow: hidden;
+}
+.member:hover .member-img img{
+    -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.member .member-img {
+  position: relative;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+.member .member-img img {
+  max-width: 100%;
+  height: auto;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.member .member-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.member .member-overlay .member-hover {
+  border-radius: 2px;
+  background-color: rgba(34, 34, 34, 0.9);
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+    opacity: 0
+}
+.member:hover .member-overlay .member-hover {
+    opacity: 1
+}
+.member .member-hover a {
+	height: 42px;
+	width: 42px;
+	line-height: 42px;
+	background-color: @color-theme;
+  color: @color-white;
+  font-size: 14px;
+  font-weight: 400;
+  margin-right: 10px;
+	display: inline-block;
+}
+.member .member-hover a:last-child {
+  margin-right: 0;
+}
+.member .member-hover a:hover {
+  color: @color-theme;
+  background-color: @color-white;
+}
+.member .member-desc{
+    padding: 15px ;
+    font-size: 15px;
+    color: #9b9b9b;
+    margin-bottom: 0;
+}
+.member .member-desc p{
+	font-size: 14px;
+	line-height: 23px;
+}
+
+.member .member-info{
+    padding-top: 30px;
+}
+.member .member-info h5 {
+  color: #282828;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: capitalize;
+  margin-bottom: 14px;
+}
+.member .member-info h6 {
+  color: @color-body;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+/*  team 3 */
+.team-3 .member{
+    text-align: center
+}
+.team-3 .member .member-social{
+    position: relative;
+    -webkit-transform: translateY(80px);
+    -moz-transform: translateY(80px);
+    -o-transform: translateY(80px);
+    transform: translateY(80px);
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.team-3 .member .member-info {
+    position: relative;
+    -webkit-transform: translateY(140px);
+    -moz-transform: translateY(140px);
+    -o-transform: translateY(140px);
+    transform: translateY(140px);
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.team-3 .member .member-info h5{
+    color: @color-white;
+}
+.team-3 .member:hover .member-overlay .member-hover .member-social{
+    transform: translateY(30px);
+}
+.team-3 .member:hover .member-overlay .member-hover .member-info{
+    transform: translateY(170px);
+}
+
+/*  team 4 */
+.team-4 .member .member-desc{
+    padding: 0
+}
+.team-4 .member .member-desc p {
+	padding: 0 18px;
+}
+.team-4 .member .member-hover{
+    margin-top: 25px
+}
+.team-4 .member .member-hover a{
+    color: @color-secondary
+}
+.team-4 .member .member-hover a:hover{
+    color: @color-theme;
+}
+.team-4 .divider--line{
+	margin-top: 18px;
+	margin-bottom: 15px;
+	width: 100%;
+    height: 16px;
+    background: url(../images/background/shapes/shape-4.png) center no-repeat;
+}
+.team-4 .divider--line:after{
+	display: none;
+}
+.team-4 .member .member-hover a {
+	height: auto;
+	width: auto;
+	line-height: 1;
+	background-color: transparent;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 400;
+  margin-right: 10px;
+	display: inline-block;
+}
+
+.team-4 .member .member-hover a:hover {
+  color: @color-theme;
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 991px) {
+	.member{
+		margin-bottom: 30px;
+		
+	}
+	.member .member-img{
+		max-width: 270px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}

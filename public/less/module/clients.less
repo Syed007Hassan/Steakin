@@ -1,0 +1,68 @@
+/*------------------------------------*\
+    #Client
+\*------------------------------------*/
+.client img {
+  max-width: 100%;
+  width: auto !important;
+}
+/* Client #1 */
+.clients-1 .row-clients .client {
+  position: relative;
+  height: 135px;
+  margin-bottom: 15px;
+  line-height: 135px;
+  padding: 20px;
+}
+.clients-1 .row-clients .client img{
+	opacity: .8;
+	-webkit-transition: all .3s linear;
+	-moz-transition: all .3s linear;
+	-ms-transition: all .3s linear;
+	-o-transition: all .3s linear;
+	transition: all .3s linear;
+}
+.clients-1 .row-clients .client:hover img{
+	opacity: 1
+}
+.clients-1 .row-clients .client:before {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  width: 1px;
+  height: 121px;
+  background-color:rgba(206, 206, 206, 0.5);
+}
+.clients-1 .row-clients .client:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 14px;
+  width: 90%;
+  height: 1px;
+  background-color: rgba(206, 206, 206, 0.5);
+}
+.clients-1.bg-overlay bg-parallax .row-clients .client:before {
+  background-color: rgba(206, 206, 206, 0.3);
+}
+.clients-1.bg-overlay bg-parallax .row-clients .client:after {
+  background-color: rgba(206, 206, 206, 0.3);
+}
+.clients-carousel [class*="col-"] {
+  max-height: 50px;
+}
+.clients-1 .row-clients .client:last-child:before {
+  display: none;
+}
+.clients-1 .row-clients:last-child .client:after {
+  display: none;
+}
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .client img {
+    margin-bottom: 20px;
+  }
+}
+.clients-2{
+    padding: 40px 0
+}

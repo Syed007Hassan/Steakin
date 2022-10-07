@@ -1,0 +1,122 @@
+/*------------------------------------*\
+    #Accordion
+\*------------------------------------*/
+/* Accordion Base */
+.accordion {
+	border-radius: 2px;
+border: 1px solid #eeeeee;
+background-color: #ffffff;
+}
+.accordion .panel {
+	border-bottom-color: rgba(49, 49, 49, 0.1);
+	padding: 10px;
+	margin-bottom: 0;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	-moz-border-radius: none;
+	-webkit-border-radius: none;
+	-moz-border-radius: none;
+	-webkit-border-radius: none;
+	border-radius: none;
+	background-color:transparent;
+}
+.accordion .panel:last-of-type{border-bottom:none}
+.accordion .panel .panel--heading {
+	padding: 19px;
+	border: 1px dashed @color-theme;
+}
+
+.accordion .panel .panel--heading a {
+	font-family: @font-heading;
+	font-size: 16px;
+	color: #282828;
+	font-weight: 600;
+	line-height: 1;
+	text-transform: capitalize;
+	position: relative;
+	display: block;
+	line-height: 26.52px;
+}
+
+.accordion .panel .panel--heading a.collapsed {
+	color: @color-dark;
+}
+
+.accordion .panel .panel--body {
+	padding:20px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 24px;
+	border: 1px dashed @color-theme;
+	margin-top: 10px;
+}
+/* Accordion Status */
+
+.accordion .panel--heading .accordion-toggle:after {
+	position: absolute;
+	right: 0;
+	top: 0;
+	content: "\f068";
+	/* symbol for "opening" panels */
+	font-family: @awesome;
+	font-size: 11px;
+	color: @color-white;
+	background-color: @color-theme;
+	border:1px solid @color-theme;
+	text-align: center;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+.accordion .panel--heading .accordion-toggle.collapsed:after {
+	content: "\f067"; /* symbol for "collapsed" panels */
+}
+/* Accordion Style #1 */
+.accordion.accordion-1 {
+	background-color: transparent;
+	border-radius: 0;
+	border: none;
+}
+.accordion.accordion-1 .panel{
+	box-shadow: 0 1px 5px rgba(40, 40, 40, 0.1);
+border-radius: 1px;
+background-color: #ffffff;
+	margin-bottom: 30px;
+}
+
+/* Accordion Style #2 */
+.accordion.accordion-2  .panel { border-bottom: none; padding-bottom: 0}
+.accordion.accordion-2  .panel:last-of-type{padding-bottom: 10px;}
+.accordion.accordion-2  .panel .panel--body {
+	margin-top: 0;
+	border-top: none;
+}
+/* Accordion Style #3 */
+.accordion.accordion-3 {
+	background-color: transparent;
+	border:none;
+}
+.accordion.accordion-3 .panel{
+	box-shadow: 0 1px 5px rgba(40, 40, 40, 0.1);
+border-radius: 1px;
+background-color: #ffffff;
+	margin-bottom: 30px;
+	padding: 29px;
+}
+.accordion.accordion-3 .panel .panel--heading {
+    padding: 0;
+    border:none;
+}
+.accordion.accordion-3 .panel .panel--body{
+	border:none;
+	border-top:1px dashed@color-theme;
+	padding: 19px 0 0 0;
+	margin-top: 22px;
+}
+
+

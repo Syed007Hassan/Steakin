@@ -1,0 +1,449 @@
+/*------------------------------------*\
+    #Menu
+\*------------------------------------*/
+
+.header .navbar-collapse {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+.header .navbar {
+	border-radius: 0;
+	min-height: 100px;
+	border: none;
+	margin: 0 20px;
+}
+.header .navbar.navbar-fixed-top{
+	top: 20px;
+}
+.header .navbar.navbar-fixed-top.affix{
+	top:0;
+}
+.header-bordered .navbar {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+	-webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+	
+}
+
+.header-bordered .navbar.navbar--dark {
+	border-bottom: 1px solid rgba(34, 34, 34, 0.1);
+}
+
+.header .navbar .logo {
+	height: 100px;
+	line-height: 100px;
+}
+
+.navbar-nav:not(.nav-pos-right) {
+	/*margin-right: 200px;*/
+}
+
+.nav-bordered-right {
+	margin-right: 30px;
+}
+
+.nav-bordered-right + .module:first-of-type:before {
+	position: relative;
+	margin-left: 12px;
+}
+
+.nav-bordered-right + .module:first-of-type:before {
+	position: absolute;
+	top: 50%;
+	margin-top: -13px;
+	left: -46px;
+	content: "";
+	width: 2px;
+	height: 26px;
+	background-color: #c9c9c9;
+}
+
+.affix .nav-bordered-right + .module:first-of-type:before {
+	background-color: #c9c9c9;
+}
+
+.navbar-nav > li {
+	margin-right: 32px;
+}
+
+.navbar-nav > li > a {
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: 700;
+	line-height: 100px;
+	color: @color-white;
+	padding: 0;
+}
+
+.nav .open > a,
+.nav .open > a:focus,
+.nav .open > a:hover {
+	background-color: transparent;
+	border: none;
+}
+
+.navbar-nav > li.active > ul {
+	margin-top: 0;
+}
+
+.navbar-nav > li > a:focus,
+.navbar-nav > li > a:hover,
+.navbar-nav > li.active > a{
+	background-color: transparent;
+	color: @color-theme
+}
+/* Menu Level #1 */
+
+.navbar-nav > li > .menu-item:before {
+	position: absolute;
+	bottom: 35px;
+	left: 50%;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: transparent;
+	content: '';
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
+}
+
+.navbar-nav > li > .menu-item:hover::before,
+.navbar-nav > li.active > .menu-item:before {
+	background-color: @color-theme;
+	width:100%;
+}
+
+li.has-dropdown > ul.dropdown-menu > li.dropdown-submenu > a:before,
+ul.dropdown-menu > li.has-dropdown > a:before {
+	font-family: fontawesome;
+	content: "\f105";
+	font-size: 13px;
+	position: absolute;
+	right: 25px;
+}
+/* Menu Levels */
+
+.dropdown-menu {
+	background-color: transparent;
+	position: relative;
+	width: 100%;
+	border: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+/**
+Header Customaztion
+**/
+.transparent-header .navbar {
+	background-color: transparent;
+	height: 101px;
+}
+
+.transparent-header .navbar-nav > li.has-dropdown > a {
+	color: @color-white
+}
+
+.transparent-header .navbar-nav li.has-dropdown > a:hover,
+.transparent-header .navbar-nav li.has-dropdown.active > a {
+	color: @color-theme
+}
+/* Header Light */
+
+.header-light {
+	background-color: @color-white;
+}
+
+.header-light .navbar .logo-dark {
+	display: inline-block;
+}
+
+.header-light .navbar .logo-light {
+	display: none;
+}
+
+.header-light .navbar .module .module-icon i,
+.header-light .navbar .navbar-nav > li > a {
+	color: #222222;
+}
+
+.header-light .navbar .navbar-nav > li > .menu-item:hover::before,
+.header-light .navbar .navbar-nav > li.active > .menu-item:before {
+	background-color: #222222;
+}
+/* Header Fixed */
+
+.header-fixed .affix {
+	background-color: @color-white;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.09);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.09);
+	-ms-box-shadow: 0 1px 3px rgba(0,0,0,.09);
+	box-shadow: 0 1px 3px rgba(0,0,0,.09);
+}
+
+.header-fixed:not(.header-light) .navbar .logo-dark {
+	display: none;
+}
+
+.header-fixed .navbar.affix .logo-dark {
+	display: inline-block;
+}
+
+.header-fixed .navbar.affix .logo-light {
+	display: none;
+}
+
+.header-fixed .navbar.affix .module .module-icon i,
+.header-fixed .navbar.affix .navbar-nav > li > a {
+	color: #222222;
+}
+
+.header-fixed .navbar.affix .navbar-nav > li > .menu-item:hover::before,
+.header-fixed .navbar.affix .navbar-nav > li.active > .menu-item:before {
+	background-color: #222222;
+}
+/* Header Centered */
+
+.header-centered {
+	height: 255px;
+}
+
+.header-centered .navbar-collapse {
+	padding-right: 260px;
+	padding-left: 260px;
+}
+
+.header-centered .navbar {
+	top: 155px;
+}
+
+.header-centered .navbar.affix {
+	top: 0;
+}
+
+.header-centered .logo-centered {
+	padding-top: 50px;
+	padding-bottom: 25px;
+}
+/* Header With Top Bar */
+
+.header-topbar {
+	height: 155px;
+}
+
+.header-topbar .navbar.navbar-fixed-top {
+	top: 75px;
+}
+
+.header-topbar .navbar.navbar-fixed-top.affix {
+	top: 0;
+}
+/* Header #2 */
+.header-2 .navbar-nav > li > .menu-item:before{
+	bottom: 35px;
+}
+/* Header #4 */
+.header-4 .navbar{
+	background-color: @color-white;
+	top: 50px;
+}
+
+/* Header #6 */
+.header-6 .navbar-collapse.pull-left{
+	padding-left: 100px;
+}
+
+.header-6 .navbar-collapse.pull-right{
+	padding-right: 100px;
+}
+
+/* Header #8 */
+
+.header-8 {
+	height: 150px;
+	
+}
+.header-8 .navbar{
+	padding-top: 32px;
+}
+.header-8 + .slider{
+	position: relative;
+	margin-top: -150px;
+}
+.header-8 .logo{
+	margin-top: -19px;
+}
+
+/* Header #10 */
+
+.header-centered.header-10{
+	height: 165px;
+}
+.header-centered.header-10 .navbar-collapse{
+	padding-right: 0;
+	padding-left: 175px;
+}
+.header-centered.header-10 .navbar {
+	top: 115px;
+}
+
+.header-centered.header-10 .navbar.affix {
+	top: 0;
+}
+
+.header-centered.header-10 + .slider,
+.header-centered.header-10 + .mtop-100, 
+.header-centered.header-10 + .page-title, 
+.header-centered.header-10 + .slider{
+	margin-top: -170px;
+}
+.header-10.header-centered .logo-centered {
+    padding-top:80px;
+    padding-bottom: 40px;
+    z-index: 1040;
+    position: fixed;
+	right: 0;
+	left: 0;
+}
+/* Header #13 */
+
+.header-3 .navbar-header > .logo {
+	position: absolute;
+	left: 50%;
+	margin-left: -59px;
+}
+
+
+/* Header #16 */
+
+.header-16 .navbar {
+	top: 30px;
+}
+
+.header-16 .navbar.affix {
+	top: 0;
+}
+
+/* Header Half */
+
+.header-half .navbar-nav > li > .menu-item:before {
+	bottom: 36px;
+}
+/* Container Bordered */
+
+.container-bordered {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+	height: 100px;
+}
+/* Navbar Dark */
+
+.header-transparent.header-light .navbar.affix {
+	background-color: transparent;
+}
+
+.navbar.navbar--dark .logo-dark {
+	display: inline-block !important;
+}
+
+.navbar.navbar--dark .logo-light {
+	display: none;
+}
+
+.navbar.navbar--dark .module .module-icon,
+.navbar.navbar--dark .module .module-icon i,
+.navbar.navbar--dark .navbar-nav > li > a {
+	color: #222222;
+}
+
+.navbar.navbar--dark .navbar-nav > li > .menu-item:hover::before,
+.navbar.navbar--dark .navbar-nav > li.active > .menu-item:before {
+	background-color: #222222;
+}
+/* Header Split */
+
+.header-split .logo-dark {
+	display: none;
+}
+
+.header-split .logo-light {
+	display: inline-block;
+}
+
+.header-split .module .module-icon i,
+.header-split .navbar-nav > li > a {
+	color: #222222;
+}
+
+.header-split .navbar-nav > li > .menu-item:hover::before,
+.header-split .navbar-nav > li.active > .menu-item:before {
+	background-color: #222222;
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+	.header .navbar{
+		margin: 0 6px;
+	}
+	.header-centered .logo-centered{
+		display: none !important;
+	}
+	.header-centered.header-10{
+    height: 120px;
+}
+	
+	.header-centered.header-10 .navbar{
+		top: 0
+	}
+	.header-centered .navbar-collapse{
+		padding: 0;
+		background-color: @color-heading;
+	}
+	.header-centered.header-10 .navbar-collapse{
+		padding-left: 0 !important;
+	}
+	.header-3 .navbar-header > .logo{
+		position: relative;
+		left: 0;
+    margin-left: 0;
+	}
+	.header-3 #navbar-collapse-2{
+		display: none;
+	}
+	.header-16 .navbar{
+		top: 0;
+	}
+	
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+	.header-3 .navbar-header > .logo{
+		position: relative;
+		left: 0;
+    margin-left: 0;
+	}
+	.header-centered .logo-centered{
+		display: none !important;
+	}
+	.header-centered.header-10{
+    height: 100px;
+}
+	.header-centered.header-10 .navbar{
+		top: 0
+	}
+	.header-centered .navbar-collapse {
+    padding-right: 0;
+    padding-left: 0;
+}
+	.header-centered.header-10 .module{
+		display: inline-block
+	}
+	.header-16 .navbar{
+		top: 0;
+		background-color: @color-white
+	}
+	
+}

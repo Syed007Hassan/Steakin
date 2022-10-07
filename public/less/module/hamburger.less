@@ -1,0 +1,110 @@
+/*------------------------------------*\
+    #Hamburger
+\*------------------------------------*/
+/* Hamburger Panel */
+
+.hamburger-panel {
+background-color: @color-heading;
+}
+
+.hamburger-panel .list-links {
+	margin-bottom: 0;
+	padding: 45px 30px;
+}
+
+.hamburger-panel .list-links a {
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 44px;
+	text-transform: uppercase;
+	color: @color-white;
+	margin-bottom: 0;
+	position: relative;
+	display: block;
+}
+
+.hamburger-panel .list-links a:hover {
+	color: @color-theme
+}
+
+.hamburger-panel .social-share {
+	padding: 0 30px;
+	margin-bottom: 49px;
+}
+
+.hamburger-panel .social-share a {
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	border-radius: 1px;
+	font-size: 14px;
+	font-weight: 400;
+	color: @color-white;
+	text-align: center;
+	display: inline-block;
+	background-color: transparent;
+	margin-right: 5px;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+
+.hamburger-panel .social-share a:hover {
+	color: @color-white !important
+}
+
+.hamburger-panel .social-share a.share-facebook:hover {
+	background-color: #3B5998;
+}
+
+.hamburger-panel .social-share a.share-twitter:hover {
+	background-color: #00ACEE;
+}
+
+.hamburger-panel .social-share a.share-pinterest:hover {
+	background-color: #C8232C;
+}
+
+.hamburger-panel .social-share a.share-google-plus:hover {
+	background-color: #DD4B39;
+}
+
+.hamburger-panel .social-share a.share-dribbble:hover {
+	background-color: #EA4C89;
+}
+
+.hamburger-panel .copywright {
+	text-align: center;
+	font-size: 13px;
+	font-weight: 400;
+	text-transform: uppercase;
+	color: @color-body;
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+	.hamburger-panel .list-links{
+		padding: 25px;
+	}
+	.hamburger-panel {
+    padding: 30px;
+	}
+	.hamburger-panel .list-links a{
+		line-height: 35px;
+	}
+	.hamburger-panel .copywright span{
+		display: block
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+	.hamburger-panel .logo{
+		float: none !important;
+		height: 50px !important;
+		line-height: 50px !important
+	}
+	.hamburger-panel .list-links{
+		padding: 25px;
+	}
+}

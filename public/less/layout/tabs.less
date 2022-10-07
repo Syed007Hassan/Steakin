@@ -1,0 +1,120 @@
+/*------------------------------------*\
+    #Tabs
+\*------------------------------------*/
+.tabs .nav-tabs {
+    border: none;
+    text-align: center;
+}
+
+.tabs .nav-tabs > li {
+    float: none;
+    display: inline-block;
+    margin: 0 11px;
+}
+
+.tabs .nav-tabs > li > a {
+    font-family:@font-body;
+    color: #333333;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+    border-radius: 0;
+    border: none;
+}
+
+.tabs .nav>li>a {
+    padding: 0 0 7px 0;
+}
+
+.tabs .nav-tabs > li > a:focus,
+.tabs .nav-tabs > li > a:hover,
+.tabs .nav-tabs > li.active > a,
+.tabs .nav-tabs > li.active > a:focus,
+.tabs .nav-tabs > li.active > a:hover {
+    color: @color-theme;
+    background-color: transparent;
+    border: none;
+}
+.tabs .nav-tabs > li > a:after{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	content: "";
+	background-color: @color-theme;
+	width: 0;
+	height: 2px;
+	-webkit-transition: all .3s linear;
+	-moz-transition: all .3s linear;
+	transition: all .3s linear;
+}
+
+.tabs .nav-tabs > li > a:focus:after,
+.tabs .nav-tabs > li > a:hover:after,
+.tabs .nav-tabs > li.active > a:after,
+.tabs .nav-tabs > li.active > a:focus:after,
+.tabs .nav-tabs > li.active > a:hover:after{
+	width: 100%
+}
+
+.tabs .tab-content > .tab-pane {
+    margin-top: 37px;
+}
+
+.tabs .tab--logos li {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.tabs .tab--heading {
+    font-size: 40px;
+    font-family: @font-secondary;
+    color: @color-heading;
+    font-weight: 400;
+    line-height: 40px;
+    margin-bottom:39px
+}
+
+.tabs ul.tab--details {
+    padding: 0;
+	margin-bottom: 0
+}
+
+.tabs .tab--details li {
+    font-size: 14px;
+    line-height: 30px;
+    list-style: none;
+    position: relative;
+    padding-left: 20px;
+}
+
+.tabs .tab--details li::before {
+    content: "•";
+    color: @color-heading;
+    font-size: 30px;
+    position: absolute;
+    left: 0
+}
+
+@media (max-width:768px) {
+    .tabs .nav-tabs > li {
+        margin: 0 8px;
+    }
+    .tabs .nav-tabs > li > a {
+        font-size: 14px;
+		margin-bottom: 15px;
+    }
+    .tabs .tab--logos li{
+        margin-bottom: 10px
+    }
+    .tabs .tab--heading {
+        font-size: 25px;
+        line-height: 40px;
+        margin-bottom: 45px
+    }
+    .tabs .tab--details li {
+        font-size: 13px;
+    }
+	.tabs .tab--logos li{
+		padding: 0;
+	}
+}

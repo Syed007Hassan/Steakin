@@ -1,0 +1,252 @@
+/*------------------------------------*\
+    #Footer
+\*------------------------------------*/
+
+footer{
+    background: @color-heading;
+    padding-top: 95px;
+    padding-bottom: 0;
+	position: relative;
+}
+
+footer .footer--widget-content h3{
+    color: @color-white;
+    font-family: @font-heading;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+footer .footer--widget-content p{
+    font-size: 13px;
+	font-weight: 400;
+	line-height: 23px;
+	margin-bottom: 0;
+}
+footer .footer--widget-content a{
+	font-size: 13px;
+font-weight: 700;
+line-height: 49px;
+text-transform: uppercase;
+	color:@color-theme;
+}
+footer .footer--widget-content a:hover{color:@color-white}
+
+/* Footer Social */
+footer .footer--social{
+    padding: 40px 0
+}
+footer .footer--social-icons a{
+	width: 42px;
+height: 42px;
+	line-height: 42px;
+	text-align: center;
+background-color: #1c1c1c;
+	font-size: 14px;
+font-weight: 400;
+	color:@color-white;
+	display: inline-block;
+	margin-right: 10px;
+	-webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+footer .footer--social-icons a:last-of-type{
+	margin-right: 0
+}
+footer .footer--social-icons a:hover{
+	background-color: @color-theme;
+}
+footer .footer--social-icons a:hover i{
+	 -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+footer .footer--social-newsletter {
+    position: relative;
+    margin: 0 auto;
+	width: 270px;
+}
+footer .footer--social-newsletter .form-control{
+    box-shadow: none;
+    border: none;
+    background-color: #1c1c1c;
+    color: #474747;
+    font-style: italic;
+	width: 270px;
+    height: 42px;
+	line-height: 42px;
+    margin: 0
+}
+footer .footer--social-newsletter .form-control::-webkit-input-placeholder {
+	color:#474747;
+}
+
+footer .footer--social-newsletter .form-control::-moz-placeholder {
+	color: #474747;
+}
+
+footer .footer--social-newsletter .form-control::-ms-input-placeholder {
+	color: #474747;
+}
+footer .footer--social-newsletter button {
+    background-color: transparent;
+    border: none;
+    line-height: 42px;
+    color: @color-theme;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    margin-bottom: 0;
+	font-size: 13px;
+	text-transform: uppercase;
+}
+/* Footer Copyrights */
+footer .footer--copyright{
+    background-color: #1b1b1b;
+    padding: 42px 0;
+	position: relative;
+}
+.footer--copyright span{
+    font-size: 13px;
+}
+.footer--copyright a{
+    color: @color-theme
+}
+
+/* Footer Contact */
+.footer--copyright .contact-info{
+	margin-bottom: 20px;
+}
+.footer--copyright .contact-info span{
+	font-size: 13px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+footer .widget-instagram a {
+	width: 60px;
+	height: 60px;
+}
+
+footer .widget-instagram .insta-hover i {
+	line-height: 60px;
+}
+
+.widget-reservations li {
+	border-bottom: 1px dashed rgba(187,147,86, 0.7);
+	line-height: 40px;
+	font-size: 13px;
+	text-transform: capitalize;
+}
+.widget-reservations li:last-child{
+	border-bottom: none;
+}
+.widget-reservations li span{
+	color: #686868;
+}
+/* Footer #1 */
+.footer-1 .footer--widget{
+    padding-bottom: 106px
+}
+
+/* Footer #2 */
+.footer-2 .footer--widget{
+    padding-bottom: 70px
+}
+.footer-2 .footer--copyright{
+	background-color: transparent;
+	padding: 0
+}
+.footer-2 .footer--copyright .col-xs-12 {
+	border-top: 1px dashed #3a3a3a;
+	padding: 40px 0
+}
+/* Footer #3 */
+.footer-3 .footer--widget{
+    padding-bottom: 76px
+}
+.footer-3 .footer--social-icons a{
+	margin-right: 7px;
+}
+/* Footer #4 */
+.footer-4 .footer--widget{
+    padding-bottom: 100px
+}
+.footer-4 .footer--social-icons a{
+	margin-right: 7px;
+}
+/* Footer #5 */
+.footer-5 .footer--widget{
+    padding-bottom: 20px
+}
+.footer-5 .footer--social-icons a{
+	margin-right: 7px;
+}
+.footer-5 .footer--copyright{
+	padding: 46px 0;
+	background-color: transparent
+}
+
+/* Footer #6 */
+.footer-6 {
+padding-top: 0
+}
+.footer--copyright .footer--social-icons a{
+	width: auto;
+	height: auto;
+	line-height: 1;
+	background-color: transparent;
+	font-size: 14px;
+	
+}
+.footer--copyright .footer--social-icons a:hover{
+	background-color: transparent;
+	color:@color-theme;
+}
+/* Footer #8 */
+.footer-8{
+	padding-top: 0;
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+	footer {
+    padding-top: 65px;
+	}
+	.footer--widget-content{
+		margin-bottom: 30px;
+	}
+	.footer-1 .footer--widget {
+		padding-bottom: 75px;
+	}
+	
+	footer .footer--copyright {
+    padding: 22px 0;
+}
+	
+	
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+	footer {
+    padding-top: 65px;
+	}
+	footer .footer--social-icons a{
+		width: 36px;
+		height: 36px;
+		line-height: 36px;
+		margin-right: 5px;
+	}
+	footer .footer--social-newsletter,
+	footer .footer--social-newsletter .form-control{
+		width: 100%
+	}
+	.footer-1 .footer--widget {
+		padding-bottom: 75px;
+	}
+	footer .footer--copyright {
+    padding: 22px 0;
+}
+}

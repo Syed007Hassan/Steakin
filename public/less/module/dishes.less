@@ -1,0 +1,781 @@
+/*------------------------------------*\
+    #Daily menu
+\*------------------------------------*/
+.menu .dishes-wrapper {
+    box-shadow: 0px 1px 73px 0px rgba(40, 40, 40, 0.1);
+    overflow: hidden
+}
+
+.menu .dish-panel{
+    margin-bottom: 20px;   
+    overflow: hidden;
+    position: relative
+}
+.menu .dish-panel .dish--price{
+    font-size:15px;
+font-weight: 600;
+line-height: 29px;
+    color: @color-theme;
+}
+.menu .dish-panel .dish--title{
+    font-size: 16px;
+font-weight: 600;
+line-height: 29px;
+    color: @color-secondary;
+    margin-bottom: 0;
+}
+.menu  .dish-panel .dish--desc{
+    font-size: 13px;
+font-weight: 400;
+line-height: 23px;
+    margin-bottom: 0;
+}
+
+.menu .dish-panel .dish--tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 3px 6px;
+    background-color: @color-theme;
+    color: @color-white;
+    font-weight: 700;
+    font-size: 13px;
+	border-radius: 3px;
+	text-transform: uppercase;
+}
+
+/* Menu Simple */
+.menu-simple .dish-panel{
+    margin-bottom: 50px;
+	position: relative;
+}
+.menu-simple .dish-panel .dish--img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100px;
+	height: 100px;
+	overflow: hidden
+}
+.menu-simple .dish-panel .dish--img img{
+	max-width: 100px;
+}
+.menu-simple .dish-panel .dish--content{
+	padding-left: 130px;
+}
+.menu-simple .dish-panel .dish--content-bio{
+	border-bottom: 1px dashed #d8d8d8;
+	padding-bottom: 10px;
+	margin-bottom: 14px;
+}
+.menu-simple .dish-panel .dish--price{
+    font-family: @font-heading;
+    font-size:15px;
+font-weight: 600;
+line-height: 29px;
+    color: @color-theme;
+	text-align: right;
+}
+.menu-simple .dish-panel .dish--title{
+    font-size: 17px;
+font-weight: 600;
+line-height: 29px;
+    color: @color-secondary;
+    margin-bottom: 0;
+	float:left;
+}
+.menu-simple .dish-panel .dish--desc{
+    font-size: 13px;
+font-weight: 400;
+line-height: 23px;
+    margin-bottom: 0;
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+	.menu-simple .dish-panel{
+		max-width: 300px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.menu-simple .dish-panel .dish--img{
+		position: relative;
+		margin: 0 auto 20px auto
+	}
+	.menu-simple .dish-panel .dish--content {
+    padding-left: 0;
+}
+	.menu-simple .dish-panel .dish--price{
+		text-align: center;
+	}
+	.menu-simple .dish-panel .dish--title{
+		float: none;
+		text-align: center;
+	}
+	.menu-simple .dish-panel .dish--desc{
+		text-align: center
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 992px) and (max-width : 1200px) {
+	.menu-simple .dish-panel .dish--title{
+		float: none;
+		font-size: 13px;
+	}
+	.menu-simple .dish-panel .dish--price{
+		text-align: left
+	}
+}
+/* Menu Classic */
+.menu-classic .dish-panel{
+	padding-bottom: 16px;
+	border-bottom: 1px dashed #d8d8d8;
+}
+.menu-classic .dish-panel:last-child{
+	padding-bottom: 0;
+	border-bottom: none;
+	margin-bottom: 0;
+}
+.menu-classic .dish-panel .dish--price{
+	text-align: right;
+}
+.menu-classic .dish-panel .dish--title{
+	float:left;
+}
+.menu-classic .dish-container .dish--img {
+	margin-bottom: 32px;
+}
+.menu-classic .dish-container .dish--img img{
+	max-width: 100%;
+	height: auto
+}
+/* Menu Gallery */
+.menu-gallery .dish-panel{
+	margin-bottom: 45px;
+}
+.menu-gallery .dish-panel .dish--img {
+	margin-bottom: 20px;
+	position: relative;
+}
+.menu-gallery .dish-panel .dish--content{
+	position: relative;
+}
+.menu-gallery .dish-panel .dish--title {
+	float: left;
+}
+.menu-gallery .dish-panel .dish--price{
+	text-align: right;
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+	.menu-gallery .dish-panel {
+		max-width: 370px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+}
+/* Menu Grid */
+.menu-grid{
+	position: relative;
+}
+.menu-grid .dishes-bg{
+	content: "";
+	position: absolute;
+	top: 110px;
+	left: 0;
+	height: 950px;
+	width: 100%;
+	z-index: 0
+}
+.menu-grid .dish-panel {
+	background-color: @color-white;
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 0;
+	
+}
+.menu-grid .dish-panel .dish--content{
+	padding: 30px 15px;
+	margin: 10px;
+	border:1px dashed #cdaf80;
+	height: 272px;
+}
+.menu-grid .dish--img{
+    height: 292px;
+    margin-bottom: 0;
+    overflow: hidden;
+	position: relative
+}
+.menu-grid .dish--img img{
+	width: 100%;
+	height: 100%
+}
+.menu-grid .dish-panel .dish--title{
+    font-size: 18px;
+}
+
+.menu-grid .dish-panel .dish--price {
+    margin-bottom:10px;
+	font-size: 18px;
+    position: relative
+}
+.menu-grid .divider--shape-4{
+	margin-top: 15px;
+	margin-bottom: 15px
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+	.menu-grid .pl-0{
+	 padding-left: 15px !important;
+	}
+	.menu-grid .pr-0{
+	 padding-right: 15px !important;
+	}
+	.menu-grid .p-0{
+	 padding-left: 15px !important;
+		    padding-right: 15px;
+	}
+	.menu-grid .dishes-bg{
+		display: none;
+	}
+	.menu-grid .dish-panel .dish--content {
+    padding:40px;
+		height: auto;
+}
+	.menu-grid .dish-panel .dish--title{
+		font-size: 19px;
+	}
+	.menu-grid .dish-panel .dish--desc{
+		font-size: 13px;
+	}
+	.menu-grid .dish--img{
+		height: auto;
+	}
+	.menu-grid .dishes-wrapper{
+		box-shadow: none;
+	}
+	.menu-grid .dish--img img,
+	.menu-grid .dish--img,
+	.menu-grid .dish-panel .dish--content{
+		max-width: 290px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+@media only screen and (min-width : 600px) and (max-width : 767px) {
+.menu-grid .dishes-bg{
+		display: none;
+	}
+	.menu-grid .dish-panel .dish--content {
+    padding:20px;
+}
+	.menu-grid .dish-panel{
+		min-height: 600px;
+	}
+}
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+.menu-grid .dishes-bg{
+		display: none;
+	}
+	.menu-grid .dish-panel .dish--content{
+		height: auto;
+	}
+	.menu-grid .dish--img img,
+	.menu-grid .dish--img,
+	.menu-grid .dish-panel .dish--content{
+		max-width: 290px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.menu-grid .dish-panel{
+		min-height: 600px;
+	}
+}
+
+@media only screen and (min-width : 992px) and (max-width : 1200px) {
+	.menu-grid .dish-panel .dish--content{
+		padding: 5px
+	}
+}
+/* Menu #Board */
+.menu-board .dish-panel >[class*="col-"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.menu-board .dish-panel {
+    overflow: hidden;
+    text-align: center;
+    height: 390px;
+    margin-bottom: 0;
+}
+.menu-board .dish-panel .dish--content{
+	padding: 60px 25px;
+	margin: 10px;
+	border:1px dashed #cdaf80;
+	height: 370px;
+	position: relative;
+}
+.menu-board .dish-panel .dish--img{
+    height: 390px;
+    margin-bottom: 0;
+    overflow: hidden;
+	position: relative;
+}
+
+.menu-board .dish-panel .dish--title{
+    font-size: 20px;
+	font-weight: 600;
+}
+.menu-board .dish-panel .dish--price{
+	position: relative;
+}
+.menu-board .dish-panel .dish--price{
+	font-size: 18px;
+	font-weight: 600;
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+	.menu-board .dish-panel,
+	.menu-board .dish-panel .dish--content{
+		height: auto;
+	}
+	.menu-board .dish-panel .dish--img,
+	.menu-board .dish-panel .dish--content{
+		max-width: 390px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 992px) and (max-width : 1200px) {
+	.menu-board .dish-panel .dish--content{
+		padding: 40px 5px;
+	}
+	.menu-board .dish-panel .dish--content .divider--shape-4 {
+		    margin-bottom: 10px;
+    margin-top: 10px;
+	}
+}
+
+/* Menu #3 */
+.menu-3 .dish-panel{
+    margin-bottom: 40px;
+}
+.menu-3 .dish--content{
+    padding-left: 200px;
+}
+.menu-3 .dish--img {
+    margin-bottom: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.menu-3 .dish-panel .dish--title{
+    margin-bottom: 6px;
+}
+.menu-3 .dish-panel .dish--desc{
+    margin-bottom: 5px;
+}
+.menu-3 .dish-panel .dish--price{
+    position: relative
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+.menu-3 .dish--img {
+    margin-bottom: 20px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.menu-3 .dish--content {
+    padding-left: 0;
+}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+	.menu-3 .dish--content {
+    padding-left: 180px;
+}
+}
+/* Menu #4 */
+.menu-4 .dish-panel{
+	margin-bottom: 0;
+}
+.menu-4 .dish-panel .dish--img {
+	margin-bottom: 20px;
+}
+.menu-4 .dish-panel .dish--content{
+	position: relative;
+	margin-bottom: 32px;
+}
+
+
+/* Menu #8*/
+.menu-8 .dish-panel {
+	margin-bottom: 15px;
+}
+.menu-8 .dish-panel .dish--content{
+    padding: 0
+}
+
+.menu-8 .dish-panel .dish--price {
+    position: relative;
+}
+
+.menu-8 .dish-panel .dish--title{
+	font-family: @font-heading;
+font-size: 24px;
+font-weight: 400;
+	margin-bottom: 10px;
+}
+.menu-8 .dish-panel .dish--img{
+    margin-bottom:18px;
+}
+/* Menu #9*/
+.menu-9 .row{
+	margin-right: 0;
+	margin-left: 0;
+}
+.menu-9 [class*="col-"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.menu-9 .dish-panel{
+    margin-bottom: 0;
+	position: relative;
+}
+
+.menu-9 .dish-panel .dish--content {
+	position: absolute;
+    bottom:28px;
+    left: 0;
+    width: 100%;
+	text-align: center;
+}
+.menu-9 .dish-panel .dish--title{
+    color: @color-white;
+    font-size: 45px;
+	font-weight: 400;
+    font-family: @font-heading;
+    position: relative;
+	margin-bottom: 15px;
+	-webkit-transition: all .3s linear;
+	-moz-transition: all .3s linear;
+	transition: all .3s linear;
+}
+.menu-9 .dish-panel:hover .dish--title{
+	margin-bottom:30px;
+	
+}
+.menu-9 .dish-panel .dish--price{
+    font-size: 16px;
+    position: relative
+}
+.menu-9 .btn{
+    width: 270px;
+}
+/*------------------------------------*\
+    #Dishes
+\*------------------------------------*/
+.specials .dishes-wrapper{
+    background-color: @color-white;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.26);
+    -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.26);
+    -ms-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.26);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.26);
+	padding: 10px;
+}
+.specials .dishes-wrapper .dishes-bordered{
+	border:1px dashed #cdaf80;
+	padding: 70px 70px 20px 70px;
+}
+
+/* Specials #2*/
+
+.specials-2  .dish-panel .dish--img{
+	border-radius: 50%;
+}
+
+/* Specials #3*/
+.specials .dish-panel-right{
+	text-align: right;
+}
+.specials .dish-panel-right .dish--img{
+	right: 0;
+	left: auto;
+}
+
+.specials .dish-panel-right .dish--content{
+	padding-right: 130px;
+	padding-left: 0;
+}
+
+.specials .dish-panel-right .dish--title{
+	float: right;
+}
+.specials .dish-panel-right .dish--price{
+	text-align: left
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+	.specials .dish-panel-right .dish--content{
+		padding-right: 0;
+	}
+	.specials .dish-panel-right .dish--title{
+		float: none;
+	}
+	.specials .dish-panel-right .dish--price{
+		text-align: center;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 992px) and (max-width :1200px) {
+	.specials .dish-panel-right .dish--title{
+		float: none
+	}
+	.specials .dish-panel-right .dish--price{
+		text-align: right
+	}
+}
+/* Specials #5*/
+.specials-5 .dish-panel .dish--content{
+	padding-right: 0;
+	padding-left: 0;
+}
+.specials-5 .specials--img{
+	position: relative
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 1200px) {
+	.specials-5 img{
+		margin: 0 auto 40px auto;
+		display: block;
+	}
+	
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 992px) and (max-width : 1200px) {
+	.specials-5 img{
+		max-width: 100%
+	}
+}
+/* Dish Overlay */
+.dish-panel  .dish--img .dish--overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 5px 0;
+	cursor: pointer;
+	-webkit-transition: all .3s linear;
+		-moz-transition: all .3s linear;
+		transition: all .3s linear;
+	
+}
+.dish-panel  .dish--img .dish--overlay:before{
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	content: "";
+	transform: scale(0);
+	background-color: rgba(0,0,0,.5);
+	-webkit-transition: all .3s linear;
+		-moz-transition: all .3s linear;
+		transition: all .3s linear;
+
+}
+.dish-panel  .dish--img .dish--overlay:hover:before{
+	transform: scale(1);
+}
+.dish-panel  .dish--img .dish--overlay .dish-popup{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: all .3s linear;
+		-moz-transition: all .3s linear;
+		transition: all .3s linear;
+	transform: scale(0);
+	
+}
+.dish-panel:hover  .dish--img .dish--overlay .dish-popup{
+	transform: scale(1)
+}
+.dish-popup i{
+	color:@color-white;
+	text-align: center;
+	font-size: 22px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0px, -50%);
+    left: 0;
+    right: 0;
+}
+
+#dishPopup .modal-body{
+	padding: 0;
+}
+#dishPopup .modal-body .img-popup{
+	position: relative;
+	
+}
+#dishPopup .modal-body .img-popup img{
+	max-height: 400px;
+}
+#dishPopup .modal-body .img-popup .img-popup-overlay{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	padding: 50px;
+	text-align: center;
+}
+#dishPopup .modal-body .img-popup .img-popup-overlay .popup--price{
+	 font-family: @font-heading;
+    font-size: 25px;
+font-weight: 400;
+line-height: 1;
+    color: @color-theme;
+    margin-bottom: 18px;
+}
+#dishPopup .modal-body .img-popup .img-popup-overlay h3 {
+	font-family: @font-secondary;
+	 font-size: 34px;
+font-weight: 400;
+line-height: 1;
+    color: @color-white;
+    margin-bottom: 0;
+}
+#dishPopup .modal-body .content-popup{
+	padding:50px 60px;
+}
+#dishPopup .modal-body .content-popup p {
+	font-size: 14px;
+font-weight: 400;
+line-height: 23px;
+	margin-bottom: 0;
+	text-align: center;
+}
+
+/* PopUP Modal */
+.modal-body{
+	padding: 0;
+}
+.modal-body .popup--img{
+	position: relative;
+	
+}
+.modal-body .popup--img:before{
+	content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0.97;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(#000));
+    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), #000);
+    background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), #000);
+    background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), #000);
+    background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), #000);
+    background-image: linear-gradient(top, rgba(0, 0, 0, 0), #000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(0, 0, 0, 0)', endColorStr='#000');
+}
+.modal-body .popup--img img{
+	max-height: 400px;
+	width: 100%;
+}
+.modal-body .popup--img .img-popup-overlay{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	padding: 50px;
+	text-align: center;
+	z-index: 2
+}
+.modal-body .popup--img .img-popup-overlay .popup--price{
+	 font-family: @font-heading;
+    font-size: 25px;
+font-weight: 400;
+line-height: 1;
+    color: @color-theme;
+    margin-bottom: 18px;
+}
+.modal-body .popup--img .img-popup-overlay h3 {
+	 font-size: 34px;
+font-weight: 400;
+line-height: 1;
+    color: @color-white;
+    margin-bottom: 0;
+}
+.modal-body .content-popup{
+	padding:50px 60px;
+}
+.modal-body .content-popup p {
+	font-size: 14px;
+font-weight: 400;
+line-height: 23px;
+	margin-bottom: 0;
+	text-align: center;
+	color:@color-heading
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+	.specials .dishes-wrapper .dishes-bordered{
+		padding: 10px;
+	}
+	.menu-classic .dish-panel{
+		max-width: 450px;
+		margin-right: auto;
+		margin-left: auto;
+		margin-bottom: 30px;
+	}
+	.menu-classic .dish-panel:last-child {
+        padding-bottom: 16px;
+    border-bottom: 1px dashed #d8d8d8;
+    margin-bottom: 30px;
+}
+	.menu-classic .dish-container{
+		margin-bottom: 30px;
+	}
+	.menu-classic .dish-container:last-of-type{
+		margin-bottom: 0;
+	}
+	
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+	.menu-classic .dish-panel:last-child{
+		margin-bottom: 30px;
+	}
+	.menu-classic .dish-panel{
+		max-width: 550px;
+		margin-right: auto;
+		margin-left: auto;
+		margin-bottom: 30px;
+	}
+}
+
+@media only screen and (min-width : 992px) and (max-width :1200px){
+	.specials .dishes-wrapper .dishes-bordered{
+		    padding: 70px 40px 20px 40px;
+	}
+}

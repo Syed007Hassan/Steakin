@@ -1,0 +1,63 @@
+/*------------------------------------*\
+    #MODALS
+\*------------------------------------*/
+body.modal-open { padding-right:0 !important}
+
+body.modal-open .affix{
+	display: none;
+}
+.modal{
+	z-index: 1080;
+	background: rgba(34,34,34, 0.95)
+}
+
+.modal::-webkit-scrollbar { 
+    display: none; 
+	width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+.modal-backdrop{
+	z-index: 1020;
+	background-color:@color-heading;
+	display: none;
+}
+.modal-content {
+	border:none;
+	border-radius: 0;
+}
+.modal-dialog {
+	margin-top: 80px;
+}
+.modal  button.close{
+	position: absolute;
+    top: 30px;
+    right: 30px;
+    color: @color-white;
+    z-index: 1040;
+    font-size: 14px;
+    font-weight: 400;
+	opacity: 1
+}
+.modal.reservation-popup button.close{
+	color: @color-heading;
+}
+.modal button.close:focus,
+.modal  button.close:hover{
+	color: @color-theme
+}
+.reservation-popup .modal-content{
+	background-color:transparent;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+.reservation-popup .modal-body{
+	padding: 0;
+}
+
+.reservation-popup .reservation-form{
+	-moz-box-shadow: 0 2px 3px rgba(40, 40, 40, 0.26);
+	-webkit-box-shadow: 0 2px 3px rgba(40, 40, 40, 0.26);
+	box-shadow: 0 2px 3px rgba(40, 40, 40, 0.26);
+}
+

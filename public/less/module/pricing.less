@@ -1,0 +1,120 @@
+/*------------------------------------*\
+    #PRICING-SECTION
+\*------------------------------------*/
+.pricing-panel {
+	border: 1px solid #eeeeee;
+    background-color: @color-white;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    -o-transition: all 0.35s;
+    transition: all 0.35s;
+	margin-top: 20px;
+	padding: 30px;
+}
+
+.pricing .pricing--heading {
+	background-color: @color-theme;
+    padding: 70px 35px;
+	position: relative;
+}
+
+.pricing .pricing--heading h5 {
+	font-weight: 400;
+	font-size: 20px;
+	margin-bottom: 50px;
+}
+.pricing .pricing--heading p {
+	font-family: @font-heading;
+    color: @color-white;
+    font-size: 70px;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+.pricing .pricing--heading span.currency {
+    font-size: 28px;
+}
+.pricing .pricing--heading span.time {
+	font-size: 13px;
+	color: @color-white;
+}
+.pricing .pricing--heading .pricing--desc{
+	color: #f9f9f9;
+	font-size: 13px;
+	line-height: 21px;
+}
+.pricing--body{
+	padding:30px 0;
+}
+.pricing--body .list-group{
+	margin: 0;
+	border: 1px dashed #c69c6d;
+}
+.pricing--body .list-group li.list-group-item {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 40px;
+	border: none;
+	background-color: transparent;
+	padding: 0;
+}
+
+.pricing--body .list-group li.list-group-item:last-child {
+	border-bottom: none;
+	padding-bottom: 0
+}
+
+.pricing-body .list-group li.list-group-item:first-child {
+	padding-top: 0
+}
+
+.pricing .panel-footer {
+	background-color: @color-white;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	padding: 0;
+}
+
+.pricing .panel-footer .btn {
+	margin-bottom: 0;
+}
+/* Pricing #2 */
+.pricing-2 .pricing-panel {
+	padding: 0;
+	margin-bottom: 30px;
+}
+.pricing-2 .pricing--body{
+	padding:30px;
+	
+}
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+
+.pricing .panel-body {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	line-height: 30px;
+}
+
+.pricing .panel-body h4 {
+	font-size: 70px;
+}
+
+.pricing .list-group {
+	padding: 25px;
+}
+
+.pricing .panel-footer {
+	padding: 0 25px 25px 25px;
+}
+
+.pricing .panel-footer .btn {
+	font-size: 11px;
+	padding: 0 16px;
+}
+
+.pricing .panel-footer .btn i {
+	margin-left: 5px
+}
+}

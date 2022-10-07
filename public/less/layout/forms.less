@@ -1,0 +1,106 @@
+/*------------------------------------*\
+    #FORMS
+\*------------------------------------*/
+.form-control {
+    font-family: @font-body;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 49px;
+    border: 1px solid #eee;
+    background: transparent;
+    padding-left: 18px;
+    margin-bottom: 30px;
+    position: relative;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	height: 49px;
+}
+.form-control:focus {
+	border-color: @color-theme;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+/* Placeholder */
+
+.form-control::-webkit-input-placeholder {
+	color: @color-body;
+	text-transform: capitalize;
+}
+
+.form-control::-moz-placeholder {
+	color: @color-body;
+	text-transform: capitalize;
+}
+
+.form-control::-ms-input-placeholder {
+	color: @color-body;
+	text-transform: capitalize;
+}
+
+.reservation-form{
+	background-color: @color-white;
+	padding:10px ;
+}
+.reservation-1 .reservation-form{
+	padding: 10px
+}
+.reservation-bordered{
+	padding: 70px 90px ;
+	border:1px dashed @color-theme
+}
+
+.reservation--dec{
+	font-size: 14px;
+font-weight: 400;
+	padding: 0 55px;
+	margin-bottom: 50px;
+}
+.form-select{
+	position: relative
+}
+.form-select i {
+	    position: absolute;
+    font-size: 20px;
+	font-weight: 400;
+	line-height: 49px;
+    right: 20px;
+    top: 0;
+    z-index: 1;
+	
+    pointer-events: none;
+    cursor: pointer;
+    color:#b8b8b8
+}
+.form-select select {
+	line-height: 1;
+	color:@color-body;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+	.reservation-form{
+		padding: 60px 0;
+	}
+	.reservation-1 .reservation-form,
+	.reservation-bordered,
+	.reservation--dec{
+	padding: 10px
+	}
+	.reservation-1 .reservation-form{
+		margin-bottom: 30px;
+	}
+	
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+}

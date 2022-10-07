@@ -1,0 +1,166 @@
+/*------------------------------------*\
+    #Number Process
+\*------------------------------------*/
+
+.number-panel {
+	position: relative;
+}
+
+.number-panel .number--img {
+	margin-bottom: 30px;
+}
+
+.number-panel .number--img img {
+	max-width: 100%;
+	height: auto;
+}
+
+.number-panel .number--content h6 {
+	color: @color-theme;
+	font-family: @font-secondary;
+	font-size: 13px;
+	font-style: italic;
+	line-height: 1;
+	margin-bottom: 14px;
+	position: relative;
+	z-index: 2;
+}
+
+.number-panel .number--content h3 {
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 1;
+	color: @color-dark2;
+	margin-bottom: 21px;
+}
+
+.number-panel .number--content p {
+	color: #9b9b9b;
+	
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 24px;
+	margin-bottom: 0;
+}
+
+.number-panel .number--content a {
+	color: @color-theme;
+	
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1;
+	padding-bottom: 4px;
+	text-transform: uppercase;
+	position: relative;
+	margin-top: 26px;
+	display: inline-block;
+}
+
+.number-panel .number--content a:after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 22px;
+	height: 2px;
+	background-color: @color-theme;
+	-webkit-transition: all 0.35s;
+	-moz-transition: all 0.35s;
+	-o-transition: all 0.35s;
+	transition: all 0.35s;
+}
+
+.number-panel:hover .number--content a:after {
+	width: 100%;
+}
+
+.number-panel .num {
+	position: absolute;
+	left: 0;
+	top: -32px;
+	color: #efefef;
+	
+	font-size: 65px;
+	font-weight: 600;
+	line-height: 1;
+}
+/* Number #1 */
+
+.number-1 .number-panel .number--content h3 span {
+	color: @color-theme;
+	position: relative;
+	padding-bottom: 3px;
+}
+
+.number-1 .number-panel .number--content h3 span:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	background-color: #dd543d;
+}
+/* Number #2 */
+
+.number-2 .number-panel .number--content h3 {
+	margin-bottom: 15px;
+}
+/* Number #3 */
+
+.number-3 .number-panel .num {
+	left: auto;
+	right: 0;
+	top: -5px;
+}
+/* Number White */
+.number-white .number-panel{
+	padding:76px 50px 57px 50px;
+}
+.number-white .number-panel .number--content h6 {
+	color: #f9f9f9;
+}
+
+.number-white .number-panel .number--content h3 {
+	color: #ffffff;
+	position: relative;
+	padding-bottom: 16px;
+}
+.number-white .number-panel .number--content h3:before{
+	position: absolute;
+	content: "";
+	left: 0;
+	bottom:0;
+	width: 30px;
+height: 2px;
+background-color: @color-white;
+		
+}
+.number-white .number-panel .number--content p {
+	color: #ffffff;
+}
+
+.number-white .number-panel .number--content a {
+	color: #ffffff;
+}
+
+.number-white .number-panel .number--content a:after {
+	background-color:#ffffff;
+}
+.number-white .number-panel .num {
+    position: absolute;
+    left: 49px;
+    top: 31px;
+    color: rgba(239, 239, 239, 0.05);
+    font-size: 65px;
+    font-weight: 700;
+    line-height: 1;
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+	.number-panel {margin-bottom:30px;}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+}

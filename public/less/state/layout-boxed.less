@@ -1,0 +1,52 @@
+/*------------------------------------*\
+    #BOXED LAYOUT
+\*------------------------------------*/
+.body-boxed {
+	background: url(../images/background/patterns/bg-body.jpg);
+	background-attachment: fixed;
+}
+
+@media only screen and (min-width : 1200px) {
+
+.body-boxed .wrapper {
+	width: 1170px;
+	margin: auto;
+}
+
+
+}
+
+@media only screen and (max-width : 1200px) {
+
+.body-boxed .wrapper {
+	width: auto;
+	margin: auto;
+	overflow-x: hidden;
+}
+}
+
+.body-boxed .header-fixed .affix {background-color:transparent}
+.body-boxed .header-fixed .affix .container{background-color:@color-white}
+.body-boxed .col-content {
+    padding: 90px;
+}
+
+.body-boxed .header .navbar.navbar-fixed-top .container{
+	padding-right: 50px;
+	padding-left: 50px;
+}
+.body-boxed .divider--slider-right{
+	right: 0;
+	margin-top: 0;
+}
+
+.body-boxed .divider--slider-left{
+	left: 0;
+	margin-top: 0;
+}
+
+
+.body-boxed .rev_slider_wrapper,
+.body-boxed .slider .rev_slider {
+    height: 600px !important;
+}

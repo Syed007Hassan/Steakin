@@ -1,0 +1,26 @@
+/*------------------------------------*\
+    #Layout Split
+\*------------------------------------*/
+.nav-split {
+	position:fixed;
+	top:50%; right:30px;padding:10px;z-index: 99; margin-bottom:0; list-style: none;
+
+
+background-color:@color-theme;}
+.nav-split li a {
+	width: 9px;
+height: 9px;
+border: 2px solid @color-white;
+background-color: transparent;
+	font-size: 0;
+	border-radius: 50%;
+	display: block;
+	margin-bottom: 13px;
+}
+.nav-split li a:hover,
+.nav-split li.active a {
+	background-color: @color-white;
+	border-color:@color-white;
+}
+
+.nav-split li:last-child a{margin-bottom: 0}

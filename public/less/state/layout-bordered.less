@@ -1,0 +1,49 @@
+/*------------------------------------*\
+    #Layout Bordered
+\*------------------------------------*/
+.body-bordered .bordered--line{
+	position: fixed;
+	display: block;
+	background: @color-white;
+    z-index: 9999;
+}
+.body-bordered .bordered--line-top,
+.body-bordered .bordered--line-bottom{height:20px; left:0; right:0}
+.body-bordered .bordered--line-right,
+.body-bordered .bordered--line-left{width:20px; top:0; bottom: 0}
+.body-bordered .bordered--line-top {top:0}
+.body-bordered .bordered--line-bottom {bottom:0}
+.body-bordered .bordered--line-right {right:0}
+.body-bordered .bordered--line-left {left:0}
+.body-bordered .navbar-fixed-top {top:20px;}
+.body-bordered .navbar-fixed-top.affix {top:0;}
+
+/*------------------------------------*\
+    #Layout Wide
+\*------------------------------------*/
+.body-wide .wrapper {
+	padding: 0;
+}
+.body-wide .header .navbar{
+	margin: 0;
+}
+.body-wide .header .navbar.navbar-fixed-top{
+	top: 0
+}
+.body-wide .divider--slider-right{
+	right: 2px
+}
+.body-wide .slider .tparrows.tp-rightarrow:before{
+	background-image: url(../images/sliders/arrows/right-arrow-wide.png);
+	width: 22px;
+    right: 5px;
+}
+.body-wide .divider--slider-left{
+	left: 2px
+}
+.body-wide .slider .tparrows.tp-leftarrow:before{
+	background-image: url(../images/sliders/arrows/left-arrow-wide.png);
+	width: 22px;
+    left: 8px;
+
+}

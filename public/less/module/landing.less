@@ -1,0 +1,143 @@
+/*------------------------------------*\
+    #Landing Page / Promo Page
+\*------------------------------------*/
+.landing-hero {
+  height: 100vh;
+  padding-top: 200px;
+}
+.landing-hero h6 {
+  color: @color-theme;
+	font-family:@font-secondary;
+font-size: 45px;
+font-weight: 400;
+	letter-spacing: 0.54px;
+	margin-bottom: 5px;
+}
+.landing-hero h1 {
+	font-family: @font-thirdy;
+  font-size: 85px;
+  font-weight: 400;
+  line-height: 90px;
+	font-style: italic;
+	letter-spacing: 1.35px;
+	margin-bottom:50px;
+}
+
+.landing-hero p {
+  font-family: @font-body;
+  color:  #f9f9f9;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 27px;
+	padding:0 30px;
+}
+
+.landing-demos .portfolio-filter li a {
+  font-weight: 700;
+	margin-right: 20px;
+}
+
+.landing-demos .portfolio-item {
+  margin-bottom: 50px;
+}
+
+.landing-demos .portfolio-title h4 {
+	font-family: @font-body;
+  color: @color-heading;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+
+.landing-demos .portfolio-title:hover h4 {
+  color: @color-theme;
+}
+
+.landing-demos .portfolio-img {
+	-moz-box-shadow: 0 0 36px 4px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow:  0 0 36px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 36px 4px rgba(0, 0, 0, 0.1);
+	-webkit-transition: all 0.35s;
+	-moz-transition: all 0.35s;
+	-o-transition: all 0.35s;
+  transition: all 0.35s;
+	height: 400px;
+	overflow: hidden;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.landing-demos .portfolio-img img {
+  max-width: 100%;
+  height: auto;
+}
+
+.landing-demos .portfolio-bio {
+  padding-top: 23px;
+}
+.landing-banner .panel--logos li{
+	width: 100px;
+height: 100px;
+box-shadow: 0 0 59px 1px rgba(0, 0, 0, 0.12);
+background-color: #ffffff;
+	padding: 18px;
+	margin-right: 30px;
+}
+.landing-banner .panel--logos li:last-child{
+	margin-right: 0;
+}
+.landing-banner .panel--logos li img{
+	max-width: 100%;
+	height: auto;
+}
+/* Landing Action*/
+.landing-action {
+  padding-top: 190px;
+	padding-bottom: 190px;
+}
+
+.landing-action img {
+  margin-bottom: 50px;
+}
+
+.landing-action h2 {
+  font-size: 85px;
+	font-weight: 400;
+  line-height:95px;
+	letter-spacing: 1.35px;
+	font-family: @font-thirdy;
+}
+.landing-action p {
+	color: #f9f9f9;
+font-size: 16px;
+font-weight: 400;
+line-height: 26px;
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+	.landing-hero{
+		padding-top: 100px;
+	}
+	.landing-hero h6{
+		font-size: 25px;
+		
+	}
+	.landing-hero h1,
+	.landing-action h2{
+		font-size: 35px;
+		line-height: 40px;
+	}
+	.landing-demos .portfolio-img{
+		height: auto;
+	}
+	.landing-action{
+		padding: 90px 0
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+}

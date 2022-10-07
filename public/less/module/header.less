@@ -1,0 +1,121 @@
+/*------------------------------------*\
+    #HEADER
+\*------------------------------------*/
+.header {
+	height: 100px;
+}
+
+.header-transparent {
+	background-color: transparent;
+}
+
+.header-transparent + .mtop-100,
+.header-transparent + .page-title,
+.header-transparent + .slider{
+	position: relative;
+	margin-top: -100px;
+}
+
+
+.header-transparent.header-transparent-topbar + .mtop-100,
+.header-transparent.header-transparent-topbar + .page-title,
+.header-transparent.header-transparent-topbar + .slider {
+	position: relative;
+	margin-top: -155px;
+}
+/* Top Bar */
+.top-bar {
+	height: 50px;
+	background-color: #222222;
+	overflow: hidden;
+}
+
+.top-bar .top--contact li {
+	margin-right: 21px;
+}
+
+.top-bar .top--contact li:last-child {
+	margin-right: 0;
+}
+
+.top-bar .top--contact {
+	line-height: 50px;
+	color: #cecece;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+.top-bar .top--contact i {
+	margin-right: 6px;
+	color:@color-theme;
+}
+
+.top-bar .top--social {
+	color: #cecece;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 50px;
+}
+
+.top-bar .top--social a {
+	color: #cecece;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 28px;
+	margin-left: 19px;
+}
+
+.top-bar.topbar-light {
+	background-color:@color-white;
+}
+.top-bar.topbar-light .top--contact,
+.top-bar.topbar-light .top--social {
+	color: #a5a5a5;
+}
+
+.top-bar.topbar-light .top--social a {
+	color: #333;
+}
+.top-bar .top--social a:hover,
+.top-bar.topbar-light .top--social a:hover{
+	color: @color-theme;
+}
+.top-bar.topbar-transparent {
+	background-color: transparent;
+}
+.header-transparent-topbar .top-bar{
+	    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+	top:20px;
+}
+.top-bar .container-bordered{
+	height: 50px;
+}
+/* Transparent Header */
+
+.static-affix {
+	top: 0;
+	width: 100%;
+	z-index: 10;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+
+	
+
+
+}
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+	
+	
+
+	
+}
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 992px) and (max-width : 1200px) {
+	
+}

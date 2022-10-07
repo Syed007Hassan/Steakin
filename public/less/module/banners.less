@@ -1,0 +1,202 @@
+/*------------------------------------*\
+    #Banners
+\*------------------------------------*/
+.banner .banner-panel .banner--img{
+	margin-bottom: 28px;
+	position: relative;
+}
+.banner .banner-panel .banner--content{
+    padding:0 10px;
+}
+.banner .banner-panel .banner--content h3{
+    color: @color-theme;
+    font-size: 30px;
+    font-family:@font-secondary;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+.banner .banner-panel .banner--content h4{
+	font-family: @font-thirdy;
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 20px
+}
+.banner .banner-panel .banner--content p{
+    font-size: 13px;
+}
+
+.banner .btn--link{
+	font-size: 20px;
+	font-weight: 400;
+	color:@color-theme;
+	font-family: @font-heading;
+	text-transform:none;
+	margin-right:30px;
+}
+
+/* Banner #2 */
+.banner-2 .banner-img,
+.banner-1 .banner--img{
+	position: relative;
+	
+}
+.banner-2 .banner-img img,
+.banner-1 .banner--img img{
+	max-width: 100%;
+	height: auto;
+	position: relative;
+}
+.banner-2 .banner-img:after,
+.banner-1 .banner--img:after{
+	position: absolute;
+	content: "";
+	top: 10px;
+	left: 10px;
+	width: ~"calc(100% - 20px)";
+	height: ~"calc(100% - 20px)";
+	border:1px dashed @color-theme;
+	opacity: 0.45;
+	z-index:1
+}
+/* Banner #5 */
+.banner-5 .banner--desc{
+	color: @color-secondary;
+font-family: @font-secondary;
+font-size: 40px;
+font-weight: 400;
+line-height: 42px;
+	padding: 0 15px;
+	margin-bottom: 55px;
+}
+
+.history-panel h6 {
+	color: @color-theme;
+font-family: @font-secondary;
+font-size: 35px;
+font-weight: 400;
+line-height: 29px;
+	    margin-bottom: 15px;
+}
+
+.history-panel h3{
+	font-size: 28px;
+font-weight: 400;
+line-height: 29px;
+	margin-bottom: 0;
+}
+.history-panel .divider--shape-13{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.history-panel p{
+	font-size: 14px;
+font-weight: 400;
+line-height: 23px;
+	margin-bottom: 0;
+}
+
+/* Banner #6 */
+.banner-6 .panel--logos li {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.banner-6 .panel--heading{
+	font-size: 47px;
+    font-family: @font-secondary;
+    color: @color-secondary;
+    font-weight: 400;
+    line-height: 40px;
+    margin-bottom:39px
+}
+.banner-6 .panel--details {
+    padding: 0;
+	margin-bottom: 0
+}
+
+.banner-6 .panel--details li {
+    font-size: 13px;
+    line-height: 30px;
+    list-style: none;
+    position: relative;
+    padding-left: 20px;
+	color: #9b9b9b;
+}
+.banner-6 .panel--details li::before {
+    content: "•";
+    color: @color-heading;
+    font-size: 27px;
+    position: absolute;
+    left: 0
+}
+.banner-6 .panel--details.text-right li{
+	padding-right: 20px;
+	padding-left: 0
+}
+.banner-6 .panel--details.text-right li::before {
+    right: 0
+}
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) and (max-width : 767px) {
+	.banner .banner-img img{
+		max-width: 100%
+	}
+	.banner .banner-panel .banner--content h4{
+		font-size: 22px;
+		line-height: 30px;
+	}
+	.banner-6 .panel--heading{
+		font-size: 36px;
+	}
+	.banner-6 .panel--logos li{
+		margin-bottom: 20px;
+	}
+	.banner-1 .banner-panel .banner--img{
+		max-width: 370px;
+		margin-right: auto;
+		margin-left: auto;
+		margin-bottom: 10px
+	}
+	.banner-2 .banner-img{
+		margin-top: 30px
+	}
+	.banner-2 .banner-img{
+		max-width: 270px;
+		margin-right: auto;
+		margin-left: auto;
+		margin-bottom: 10px
+	}
+			.banner .banner-panel .banner--content{
+		max-width: 400px;
+		margin-right: auto;
+		margin-left: auto;
+			
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+	.banner-6 .panel--details li{
+		font-size: 12px;
+	}
+	.banner-2 .banner-img{
+		max-width: 270px;
+		margin-right: auto;
+		margin-left: auto;
+		margin-top: 30px
+	}
+	.banner .banner-panel .banner--content{
+		max-width: 400px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.banner .banner-img img{
+		max-width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+@media only screen and (min-width : 992px) and (max-width : 1200px) {
+	.banner-6 .panel--details li{
+		font-size: 11px;
+	}
+}
