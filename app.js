@@ -9,7 +9,11 @@ app.use(express.static("public"));
 var data;
 var data2;
 
-app.get("/database", (req, res) => {});
+app.get("/hello", (req,res) =>{
+
+  res.render("hello", { Chefname: data2 });
+
+});
 
 app.get("/", (req, res) => {
   //res.sendFile(__dirname + "/index.html");
@@ -28,7 +32,7 @@ app.get("/home", (req, res) => {
 
 app.get("/page-chefs", (req, res) => {
   //res.sendFile(__dirname + "/page-about.html");
-  let sql = "SELECT idChefs,FName, LName FROM CHEFS";
+  let sql = "SELECT * FROM CHEFS";
 
   // con.query(
   //   'INSERT INTO USERS (fName,lName) VALUES ("cr","7")',
@@ -45,12 +49,13 @@ app.get("/page-chefs", (req, res) => {
     } else {
       // res.send(result);
       data = result;
-      data2 = data[0].FName;
-      console.log(data2);
+     
+      //  console.log(data.length);
     }
   });
 
-  res.render("page-chefs", { Chefname: data2 });
+
+  res.render("page-chefs", { Chefname: data });
 });
 
 app.get("/page-contacts", (req, res) => {
