@@ -50,7 +50,7 @@ app.get("/page-chefs", (req, res) => {
       // res.send(result);
       data = result;
      
-      //  console.log(data.length);
+
     }
   });
 
