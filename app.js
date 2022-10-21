@@ -1,17 +1,36 @@
 const express = require("express");
 const app = express();
 const con = require("./database.js");
+const bodyParser = require("body-parser");
 
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
 
+app.use(bodyParser.urlencoded({ extended: false })) 
+
+app.use(bodyParser.json());
+
 var data;
 var data2;
 
+var breakfastmenu,lunchmenu,dinnermenu,dessertmenu,drinksmenu;
+
 app.get("/hello", (req,res) =>{
 
-  res.render("hello", { Chefname: data2 });
+  let sql = "SELECT * from Breakfast";
+ 
+  con.query(sql, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+    menu =  result;  
+    // console.log(result);
+    }
+  });
+  
+  res.render("menu-grid", {Menu:menu});
+
 
 });
 
@@ -50,7 +69,6 @@ app.get("/page-chefs", (req, res) => {
       // res.send(result);
       data = result;
      
-
     }
   });
 
@@ -63,6 +81,35 @@ app.get("/page-contacts", (req, res) => {
   res.render("page-contacts");
 });
 
+app.post("/page-contacts", (req,res) =>{
+
+  const a = req.body.fname;
+  const b = req.body.lname;
+  const c = req.body.email;
+  const d = req.body.phone;
+  const e = req.body.message;
+
+  var sql = `INSERT INTO contactus (FirstName,LastName,Email,Phone,Message)
+   VALUES ("${a}", "${b}", "${c}", "${d}", "${e}")`;
+
+   con.query(sql, (err,result) =>{
+     if(err){
+        console.log(err);
+     }
+     else{
+   
+      //  res.render('<html> <body>
+      //      <div class="alert alert-success" role="alert">Thank you. We will contact you shortly.</div>
+      //  </body>
+      //  </html>');
+
+      res.render("page-contacts");
+     }
+   })
+
+});
+
+
 app.get("/page-faqs", (req, res) => {
   //res.sendFile(__dirname + "/page-about.html");
   res.render("page-faqs");
@@ -70,7 +117,68 @@ app.get("/page-faqs", (req, res) => {
 
 app.get("/menu-grid", (req, res) => {
   //res.sendFile(__dirname + "/page-about.html");
-  res.render("menu-grid");
+
+  let sql = "SELECT * from Breakfast";
+  
+  con.query(sql, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+    breakfastmenu =  result;  
+    // console.log(result);
+    }
+  });
+
+  let sql2 = "SELECT * from Lunch";
+  con.query(sql2, (err, result) => {
+    if(err){
+      console.log(err);
+    }else{  
+    lunchmenu =  result;  
+    //  console.log(result);
+    }
+
+  });
+  
+ let sql3 = "SELECT * from Dinner";
+
+ con.query(sql3, (err, result) => {
+  if(err){
+    console.log(err);
+  }else{  
+    dinnermenu =  result;  
+  //  console.log(result);
+  }
+ });
+
+ let sql4 = "SELECT * from Dessert";
+
+ con.query(sql4, (err, result) => {
+  if(err){
+    console.log(err);
+  }else{  
+    dessertmenu =  result; 
+  //  console.log(result);
+  }
+ });
+
+ let sql5 = "SELECT * from Drinks";
+
+ con.query(sql5, (err, result) => { 
+  if(err){
+    console.log(err);
+  }else{
+    drinksmenu =  result;
+  //  console.log(result);
+  }
+  });
+
+  res.render("menu-grid", {BreakfastMenu:breakfastmenu, 
+                           LunchMenu:lunchmenu, 
+                           DinnerMenu:dinnermenu,
+                           DessertMenu:dessertmenu,
+                           DrinksMenu:drinksmenu});
+                       
 });
 
 app.get("/page-book-table", (req, res) => {
