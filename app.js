@@ -15,6 +15,7 @@ var data;
 var data2;
 
 var breakfastmenu,lunchmenu,dinnermenu,dessertmenu,drinksmenu;
+var bookingavailable = 0;
 
 app.get("/hello", (req,res) =>{
 
@@ -98,11 +99,6 @@ app.post("/page-contacts", (req,res) =>{
      }
      else{
    
-      //  res.render('<html> <body>
-      //      <div class="alert alert-success" role="alert">Thank you. We will contact you shortly.</div>
-      //  </body>
-      //  </html>');
-
       res.render("page-contacts");
      }
    })
@@ -182,9 +178,34 @@ app.get("/menu-grid", (req, res) => {
 });
 
 app.get("/page-book-table", (req, res) => {
-  //res.sendFile(__dirname + "/page-about.html");
-  res.render("page-book-table");
+  
+  let sql4 = "SELECT * from BOOKINGAVAILABLE";
+
+ con.query(sql4, (err, result) => {
+  if(err){
+    console.log(err);
+  }else{  
+    
+    bookingavailable =  result;
+
+  }
+ });
+
+  res.render("page-book-table",{BookingAvailable:bookingavailable});
 });
+
+
+app.post("/page-book-table", (req,res) =>{
+
+  var people = req.body.people;
+  var day = req.body.day;
+  var time = req.body.time;
+
+  console.log(day);
+
+});
+
+
 
 // PORT
 const PORT = 3000;
