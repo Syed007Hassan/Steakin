@@ -692,7 +692,7 @@
             $(reservationResult, reservationPopupForm).html('Please Wait...');
             $.ajax({
                 type: "POST",
-                url: "assets/php/reservationpopup.php",
+                url: "/php/reservationpopup.php",
                 data: $(reservationPopupForm).serialize(),
                 timeout: 20000,
                 success: function(msg) {

@@ -45,16 +45,16 @@
                     <div class="reservation--dec">
                         You can Book a table online easily in just a couple of minutes. We take reservations for lunch and dinner, just check the availability of your table & book it now!
                     </div>
-                    <form method="post" action="#">
+                    <form method="post" action="/page-book-table-">
                         <div class="row">
                             <% if(BookingAvailable != 0){ %> 
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-select">
                                     <i class="fa fa-angle-down"></i>
                                     <select class="form-control" name="people" id="num">
-									<option value="">Number of people</option>
+									<option>Number of people</option>
                                     <% BookingAvailable.forEach(element => { %>
-                                    <option value="2"><%=element.NoOfPeople%></option>
+                                    <option value= <%=element.NoOfPeople%> ><%=element.NoOfPeople%></option>
 									<% }) %> 
 								</select>
                                 </div>
@@ -63,7 +63,7 @@
                                 <div class="form-select">
                                     <i class="fa fa-angle-down"></i>
                                     <select class="form-control" name="day" id="day">
-									<option value="">Date</option>
+									<option>Date</option>
                                     <% BookingAvailable.forEach(element => { %>
                                         <option value= <%=element.BDate%> ><%=element.BDate%></option>
                                         <% }) %> 
@@ -74,7 +74,7 @@
                                 <div class="form-select">
                                     <i class="fa fa-angle-down"></i>
                                     <select class="form-control" name="time" id="time">
-									<option value="">Time</option>
+									<option>Time</option>
                                     <% BookingAvailable.forEach(element => { %>
                                         <option value=<%=element.BTime%>><%=element.BTime%></option>
                                         <% }) %> 
@@ -82,7 +82,8 @@
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                <button type="submit" id="submit-reservation" class="btn btn--secondary btn--block">Book Table</button>
+                                <button type="submit" class="btn btn--secondary btn--block">Book Table</button>
+                                <!-- <button type="submit" id="submit-reservation" formaction="/page-book-table" class="btn btn--secondary btn--block">Book Table</button> -->
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <!--Alert Message-->

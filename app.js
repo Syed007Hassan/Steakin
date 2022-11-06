@@ -2,35 +2,25 @@ const express = require("express");
 const app = express();
 const con = require("./database.js");
 const bodyParser = require("body-parser");
+const alert = require('alert'); 
 
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
 
-app.use(bodyParser.urlencoded({ extended: false })) 
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
 
 var data;
 var data2;
 
-var breakfastmenu,lunchmenu,dinnermenu,dessertmenu,drinksmenu;
-var bookingavailable = 0;
+var breakfastmenu, lunchmenu, dinnermenu, dessertmenu, drinksmenu;
+var bookingavailable, bid;
 
-app.get("/hello", (req,res) =>{
+app.get("/hello", (req, res) => {
 
-  let sql = "SELECT * from Breakfast";
- 
-  con.query(sql, (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-    menu =  result;  
-    // console.log(result);
-    }
-  });
-  
-  res.render("menu-grid", {Menu:menu});
+  res.render("hello");
 
 
 });
@@ -69,10 +59,8 @@ app.get("/page-chefs", (req, res) => {
     } else {
       // res.send(result);
       data = result;
-     
     }
   });
-
 
   res.render("page-chefs", { Chefname: data });
 });
@@ -82,8 +70,7 @@ app.get("/page-contacts", (req, res) => {
   res.render("page-contacts");
 });
 
-app.post("/page-contacts", (req,res) =>{
-
+app.post("/page-contacts", (req, res) => {
   const a = req.body.fname;
   const b = req.body.lname;
   const c = req.body.email;
@@ -93,18 +80,14 @@ app.post("/page-contacts", (req,res) =>{
   var sql = `INSERT INTO contactus (FirstName,LastName,Email,Phone,Message)
    VALUES ("${a}", "${b}", "${c}", "${d}", "${e}")`;
 
-   con.query(sql, (err,result) =>{
-     if(err){
-        console.log(err);
-     }
-     else{
-   
+  con.query(sql, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
       res.render("page-contacts");
-     }
-   })
-
+    }
+  });
 });
-
 
 app.get("/page-faqs", (req, res) => {
   //res.sendFile(__dirname + "/page-about.html");
@@ -115,97 +98,133 @@ app.get("/menu-grid", (req, res) => {
   //res.sendFile(__dirname + "/page-about.html");
 
   let sql = "SELECT * from Breakfast";
-  
+
   con.query(sql, (err, result) => {
     if (err) {
       console.log(err);
     } else {
-    breakfastmenu =  result;  
-    // console.log(result);
+      breakfastmenu = result;
+      // console.log(result);
     }
   });
 
   let sql2 = "SELECT * from Lunch";
   con.query(sql2, (err, result) => {
-    if(err){
+    if (err) {
       console.log(err);
-    }else{  
-    lunchmenu =  result;  
-    //  console.log(result);
+    } else {
+      lunchmenu = result;
+      //  console.log(result);
     }
-
-  });
-  
- let sql3 = "SELECT * from Dinner";
-
- con.query(sql3, (err, result) => {
-  if(err){
-    console.log(err);
-  }else{  
-    dinnermenu =  result;  
-  //  console.log(result);
-  }
- });
-
- let sql4 = "SELECT * from Dessert";
-
- con.query(sql4, (err, result) => {
-  if(err){
-    console.log(err);
-  }else{  
-    dessertmenu =  result; 
-  //  console.log(result);
-  }
- });
-
- let sql5 = "SELECT * from Drinks";
-
- con.query(sql5, (err, result) => { 
-  if(err){
-    console.log(err);
-  }else{
-    drinksmenu =  result;
-  //  console.log(result);
-  }
   });
 
-  res.render("menu-grid", {BreakfastMenu:breakfastmenu, 
-                           LunchMenu:lunchmenu, 
-                           DinnerMenu:dinnermenu,
-                           DessertMenu:dessertmenu,
-                           DrinksMenu:drinksmenu});
-                       
+  let sql3 = "SELECT * from Dinner";
+
+  con.query(sql3, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      dinnermenu = result;
+      //  console.log(result);
+    }
+  });
+
+  let sql4 = "SELECT * from Dessert";
+
+  con.query(sql4, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      dessertmenu = result;
+      //  console.log(result);
+    }
+  });
+
+  let sql5 = "SELECT * from Drinks";
+
+  con.query(sql5, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      drinksmenu = result;
+      //  console.log(result);
+    }
+  });
+
+  res.render("menu-grid", {
+    BreakfastMenu: breakfastmenu,
+    LunchMenu: lunchmenu,
+    DinnerMenu: dinnermenu,
+    DessertMenu: dessertmenu,
+    DrinksMenu: drinksmenu,
+  });
 });
 
 app.get("/page-book-table", (req, res) => {
-  
   let sql4 = "SELECT * from BOOKINGAVAILABLE";
 
- con.query(sql4, (err, result) => {
-  if(err){
-    console.log(err);
-  }else{  
-    
-    bookingavailable =  result;
+  con.query(sql4, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      bookingavailable = result;
+    }
+  });
 
-  }
- });
-
-  res.render("page-book-table",{BookingAvailable:bookingavailable});
+  res.render("page-book-table", { BookingAvailable: bookingavailable });
 });
 
-
-app.post("/page-book-table", (req,res) =>{
-
+app.post("/page-book-table-", (req, res) => {
   var people = req.body.people;
-  var day = req.body.day;
-  var time = req.body.time;
+  var date = req.body.day;
+  var time = req.body.time + " PM";
+  
+  console.log(` "${people}" "${date}" "${time}" `);
+ 
 
-  console.log(day);
+  var test = `select idBookingAvailable from bookingavailable where BDate = "${date}" AND BTime = "${time}" AND NoOfPeople = "${people}" `;
 
+  con.query(test, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+    
+      if(result!=null){
+
+      bid = result[0].idBookingAvailable;
+      console.log(bid);
+      
+      var test1 = `Delete from bookingavailable where idBookingAvailable = ${bid}`;
+
+      con.query(test1,(err, result) => {
+        if (err) {
+          console.log(err);
+        } else { 
+         alert("Booking Confirmed");
+          res.render("index");
+        } 
+    });
+
+
+      }
+    }
+  });
+
+ 
+
+  let sql4 = "SELECT * from BOOKINGAVAILABLE";
+
+  con.query(sql4, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      bookingavailable = result;
+     
+    }
+  });
+
+  res.render("page-book-table", { BookingAvailable: bookingavailable });
 });
-
-
 
 // PORT
 const PORT = 3000;
