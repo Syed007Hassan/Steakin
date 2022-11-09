@@ -171,7 +171,7 @@ app.get("/page-book-table", (req, res) => {
     }
   });
 
-  res.render("page-book-table", { BookingAvailable: bookingavailable });
+  res.render("page-book-table", { BookingAvailable: bookingavailable, ReservationFlag: 0 });
 });
 
 app.post("/page-book-table-", (req, res) => {
@@ -223,7 +223,10 @@ app.post("/page-book-table-", (req, res) => {
     }
   });
 
-  res.render("page-book-table", { BookingAvailable: bookingavailable });
+   res.render("page-book-table", { BookingAvailable: bookingavailable, ReservationFlag: 1 });
+
+  //res.redirect("/page-book-table");
+
 });
 
 // PORT

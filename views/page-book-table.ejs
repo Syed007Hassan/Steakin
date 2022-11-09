@@ -1,6 +1,7 @@
 <%- include("partials/header") -%>
 
-<% var BookingAvailable = BookingAvailable %>
+<% var BookingAvailablee = BookingAvailable %>
+<% var reservationFlag = ReservationFlag %>
 
 <!-- Page Title #1
 ============================================= -->
@@ -41,19 +42,26 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+                
                 <div class="reservation-form mt-10 mb-10 text-center">
+                    <% if(reservationFlag){ %> 
+                    <div class="reservation--dec">
+                       <p>Your Reservations Have been made, We will contact you shortly!</p>
+                    </div>
+                    <% } %>
+                    <br>
                     <div class="reservation--dec">
                         You can Book a table online easily in just a couple of minutes. We take reservations for lunch and dinner, just check the availability of your table & book it now!
                     </div>
                     <form method="post" action="/page-book-table-">
                         <div class="row">
-                            <% if(BookingAvailable != 0){ %> 
+                            <% if(BookingAvailablee != 0 ){ %> 
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-select">
                                     <i class="fa fa-angle-down"></i>
                                     <select class="form-control" name="people" id="num">
 									<option>Number of people</option>
-                                    <% BookingAvailable.forEach(element => { %>
+                                    <% BookingAvailablee.forEach(element => { %>
                                     <option value= <%=element.NoOfPeople%> ><%=element.NoOfPeople%></option>
 									<% }) %> 
 								</select>
@@ -64,7 +72,7 @@
                                     <i class="fa fa-angle-down"></i>
                                     <select class="form-control" name="day" id="day">
 									<option>Date</option>
-                                    <% BookingAvailable.forEach(element => { %>
+                                    <% BookingAvailablee.forEach(element => { %>
                                         <option value= <%=element.BDate%> ><%=element.BDate%></option>
                                         <% }) %> 
 								</select>
@@ -75,7 +83,7 @@
                                     <i class="fa fa-angle-down"></i>
                                     <select class="form-control" name="time" id="time">
 									<option>Time</option>
-                                    <% BookingAvailable.forEach(element => { %>
+                                    <% BookingAvailablee.forEach(element => { %>
                                         <option value=<%=element.BTime%>><%=element.BTime%></option>
                                         <% }) %> 
 								</select>
