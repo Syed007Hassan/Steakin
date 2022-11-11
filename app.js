@@ -20,8 +20,19 @@ var bookingavailable, bid;
 
 app.get("/hello", (req, res) => {
 
-  res.render("hello");
+   let select = "select bf.ItemName,bf.Amount,bf.Details,lc.ItemName,lc.Amount,lc.Details,dn.ItemName,dn.Amount,dn.Details,ds.ItemName,ds.Amount,ds.Details,dr.ItemName,dr.Amount,dr.Details ";
+   let from = "from breakfast bf, lunch lc, dinner dn, dessert ds, drinks dr,todaymenu tm ";
+   let where = "where (bf.idBreakfast = tm.idBreakfast) And (lc.idlunch = tm.idlunch) AND (dn.iddinner = tm.iddinner) AND (ds.iddessert = tm.iddessert) AND (dr.idDrinks = tm.idDrinks);";
+   let sql = select + from + where;
+   // let sql = "select bf.ItemName, bf.Amount, bf.Details, lc.ItemName, lc.Amount, lc.Details, dn.ItemName, dn.Amount, dn.Details, ds.ItemName, ds.Amount, ds.Details, dr.ItemName, dr.Amount, dr.Details from breakfast bf, lunch lc, dinner dn, dessert ds, drinks dr, todaymenu tm where (tm.idBreakfast = bf.idBreakfast) AND (tm.idlunch = lc.idlunch ) AND (tm.iddinner = dn.iddinner) AND (tm.iddessert = ds.iddessert) AND (tm.idDrinks = dr.idDrinks)";
 
+  con.query(sql, function (err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(result);
+    }
+  })
 
 });
 
