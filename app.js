@@ -17,22 +17,10 @@ var data2;
 
 var breakfastmenu, lunchmenu, dinnermenu, dessertmenu, drinksmenu;
 var bookingavailable, bid;
+var totalResults = [];
 
 app.get("/hello", (req, res) => {
 
-   let select = "select bf.ItemName,bf.Amount,bf.Details,lc.ItemName,lc.Amount,lc.Details,dn.ItemName,dn.Amount,dn.Details,ds.ItemName,ds.Amount,ds.Details,dr.ItemName,dr.Amount,dr.Details ";
-   let from = "from breakfast bf, lunch lc, dinner dn, dessert ds, drinks dr,todaymenu tm ";
-   let where = "where (bf.idBreakfast = tm.idBreakfast) And (lc.idlunch = tm.idlunch) AND (dn.iddinner = tm.iddinner) AND (ds.iddessert = tm.iddessert) AND (dr.idDrinks = tm.idDrinks);";
-   let sql = select + from + where;
-   // let sql = "select bf.ItemName, bf.Amount, bf.Details, lc.ItemName, lc.Amount, lc.Details, dn.ItemName, dn.Amount, dn.Details, ds.ItemName, ds.Amount, ds.Details, dr.ItemName, dr.Amount, dr.Details from breakfast bf, lunch lc, dinner dn, dessert ds, drinks dr, todaymenu tm where (tm.idBreakfast = bf.idBreakfast) AND (tm.idlunch = lc.idlunch ) AND (tm.iddinner = dn.iddinner) AND (tm.iddessert = ds.iddessert) AND (tm.idDrinks = dr.idDrinks)";
-
-  con.query(sql, function (err, result) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(result);
-    }
-  })
 
 });
 
@@ -54,15 +42,6 @@ app.get("/home", (req, res) => {
 app.get("/page-chefs", (req, res) => {
   //res.sendFile(__dirname + "/page-about.html");
   let sql = "SELECT * FROM CHEFS";
-
-  // con.query(
-  //   'INSERT INTO USERS (fName,lName) VALUES ("cr","7")',
-  //   (err, result) => {
-  //     if (err) {
-  //       console.log(err);
-  //     }
-  //   }
-  // );
 
   con.query(sql, (err, result) => {
     if (err) {
@@ -162,12 +141,69 @@ app.get("/menu-grid", (req, res) => {
     }
   });
 
+   sql = "select bf.ItemName,bf.Amount,bf.Details from breakfast bf, todaymenu tm where (bf.idBreakfast = tm.idBreakfast);"
+  
+  con.query(sql, function (err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+
+       totalResults.push(result[0]);
+    }
+  })
+
+  sql = "select lu.ItemName,lu.Amount,lu.Details from lunch lu, todaymenu tm where (lu.idlunch = tm.idlunch);"
+  
+  con.query(sql, (err,result) => {
+    if(err){
+      console.log(err);
+    }
+    else{
+      totalResults.push(result[0]);
+    }
+  });
+
+  sql = "select di.ItemName,di.Amount,di.Details from dinner di, todaymenu tm where (di.iddinner = tm.iddinner);"
+
+  con.query(sql, (err,result) => {
+    if(err){
+      console.log(err);
+    }
+    else{
+      totalResults.push(result[0]);
+    }
+  });
+
+  sql ="select de.Itemname,de.Amount,de.Details from dessert de, todaymenu tm where (de.iddessert = tm.iddessert);"
+
+  con.query(sql, (err,result) => {  
+    if(err){
+      console.log(err);
+    }
+    else{
+      totalResults.push(result[0]);
+    }
+  });
+
+  sql = "select dr.ItemName,dr.Amount,dr.Details from drinks dr, todaymenu tm where (dr.idDrinks = tm.idDrinks);"
+
+  con.query(sql,(err,result) => {
+    if(err){
+      console.log(err);
+    }
+    else{
+      totalResults.push(result[0]);
+    }
+  });
+
+
   res.render("menu-grid", {
     BreakfastMenu: breakfastmenu,
     LunchMenu: lunchmenu,
     DinnerMenu: dinnermenu,
     DessertMenu: dessertmenu,
     DrinksMenu: drinksmenu,
+    TodayMenu: totalResults
   });
 });
 
