@@ -1,8 +1,13 @@
-const express = require("express");
+import express from "express";
+import alert from 'alert';
+import bodyParser from "body-parser";
+import con from "./database.js";
 const app = express();
-const con = require("./database.js");
-const bodyParser = require("body-parser");
-const alert = require('alert'); 
+// const express = require("express");
+// const bodyParser = require("body-parser");
+// const con = require("./database.js");
+// const alert = require('alert'); 
+
 
 app.set("view engine", "ejs");
 
@@ -226,7 +231,7 @@ app.post("/page-book-table-", (req, res) => {
   var date = req.body.day;
   var time = req.body.time + " PM";
   
-  console.log(` "${people}" "${date}" "${time}" `);
+  // console.log(` "${people}" "${date}" "${time}" `);
  
 
   var test = `select idBookingAvailable from bookingavailable where BDate = "${date}" AND BTime = "${time}" AND NoOfPeople = "${people}" `;
@@ -276,17 +281,5 @@ app.post("/page-book-table-", (req, res) => {
 
 });
 
-// PORT
-const PORT = 3000;
 
-app.listen(PORT, () => {
-  console.log(`Server is running on PORT: ${PORT}`);
-
-  con.connect((err) => {
-    if (err) {
-      console.log("Error connecting to Db");
-      return;
-    }
-    console.log("Connected!");
-  });
-});
+export default app;

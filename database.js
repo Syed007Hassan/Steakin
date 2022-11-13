@@ -1,10 +1,11 @@
-const mysql = require('mysql2');
+//const mysql = require('mysql2');
+import mysql from 'mysql2';
 
-const db = mysql.createConnection({
+const con = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'fast123',
     database: 'restaurantdb'
 });
 
-module.exports = db;
+export default con;
