@@ -46,7 +46,7 @@ app.get("/home", (req, res) => {
 
 app.get("/page-chefs", (req, res) => {
   //res.sendFile(__dirname + "/page-about.html");
-  let sql = "SELECT * FROM CHEFS";
+  let sql = "SELECT ch.FName, ch.LName, ch.Toc, sh.ShopName FROM CHEFS ch, SHOPS sh WHERE ch.shopid = sh.idShops";
 
   con.query(sql, (err, result) => {
     if (err) {
@@ -295,6 +295,50 @@ app.post("/page-book-table-", (req, res) => {
 
   //res.redirect("/page-book-table");
 
+});
+
+app.get("/page-admin", (req, res) => {
+
+  res.render("page-admin");
+});
+
+app.post("/page-admin", function (req, res) {
+  const name = req.body.Name;
+  const password = req.body.Pass;
+
+  if(name === "admin" && password === "admin")
+  {
+    res.render("admin-success");
+  }
+  else
+  {
+    res.render("page-admin");
+  }
+   
+});
+
+app.get("/page-add-chefs", (req, res) => {
+
+  res.render("page-add-chefs");
+});
+
+app.post("/page-add-chefs", (req, res) => {
+  const a = req.body.chefid;
+  const b = req.body.fname;
+  const c = req.body.lname;
+  const d = req.body.Toc;
+  const e = req.body.shopid;
+
+  var sql = `INSERT INTO CHEFS (idChefs,FName,LName,Toc,shopid)
+   VALUES ("${a}", "${b}", "${c}", "${d}", "${e}")`;
+
+  con.query(sql, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("page-add-chefs");
+    }
+  });
 });
 
 
