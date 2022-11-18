@@ -35,11 +35,7 @@ describe("Testing the connectivity of MySQL", () => {
 describe("Test the root path", () => {
     test("It should response the GET method", done => {
       request(app)
-<<<<<<< HEAD
         .get("/")
-=======
-        .get("/hassan")
->>>>>>> ce611d362e5fa18024bb84bcdd5502132fdac605
         .then(response => {
           expect(response.statusCode).toBe(200);
           done();

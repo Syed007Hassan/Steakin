@@ -48,7 +48,7 @@ app.get("/page-chefs", (req, res) => {
   //res.sendFile(__dirname + "/page-about.html");
   let sql = "SELECT * FROM CHEFS";
 
-  con.query(sql, (err, result) => {
+  con.query("SELECT * FROM CHEFS", (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -58,6 +58,23 @@ app.get("/page-chefs", (req, res) => {
   });
 
   res.render("page-chefs", { Chefname: data });
+});
+
+app.get("/allchefs", (req,res) => {
+ 
+  let sql = "SELECT * FROM CHEFS";
+
+  con.query(sql, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      // res.send(result);
+      res.send(result);
+    }
+  });
+
+  
+
 });
 
 app.get("/page-shops", (req, res) => {
@@ -296,6 +313,8 @@ app.post("/page-book-table-", (req, res) => {
   //res.redirect("/page-book-table");
 
 });
+
+
 
 
 export default app;
