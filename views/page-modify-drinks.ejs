@@ -1,6 +1,9 @@
 <%- include("partials/header") -%>
 
+ <!-- Page Title #1
 ============================================= -->
+<% var ADD = add %>
+<% var DELETE = deletee %> 
         <section id="page-title" class="page-title bg-overlay bg-parallax bg-overlay-gradient">
             <div class="bg-section">
                 <img src="images/page-title/6.jpg" alt="Background" />
@@ -12,14 +15,14 @@
                             <div class="title--content">
                                 <div class="title--subtitle">Ready To Serve</div>
                                 <div class="title--heading">
-                                    <h1>Add Chefs</h1>
+                                    <h1>Modify Drinks</h1>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
                             <ol class="breadcrumb">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="index.html">Admin</a></li>
-                                <li class="active">Add Chefs</li>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/page-admin">Admin</a></li>
+                                <li class="active">Modify Drinks</li>
                             </ol>
                             <div class="divider--shape-1down"></div>
                         </div>
@@ -39,40 +42,50 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-container">
                             <div class="row">
-                                
-        
+                             <% if(ADD != 0){ %>     
                                 <div class="col-xs-12 col-sm-12 col-md-6">
                                     <div class="contact-form">
-                                        <form  action="/page-add-chefs" method="post" >
+                                        <form  action="/page-modify-drinks" method="post" >
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name="chefid" id="firstName" placeholder="Chef ID:" required>
+                                                    <input type="text" class="form-control" name="iddrink" id="iddrink" placeholder="Drink ID:" required>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name="fname" id="lastName" placeholder="First Name" required>
+                                                    <input type="text" class="form-control" name="itemname" id="itemname" placeholder="Item Name:" required>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name="lname" id="email" placeholder="Last Name:" required>
+                                                    <input type="text" class="form-control" name="amount" id="amount" placeholder="Amount:" required>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name="Toc" id="phone" placeholder="Toc:" required>
+                                                    <input type="text" class="form-control" name="details" id="details" placeholder="Details:" required>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name="shopid" id="phone" placeholder="Shop ID:" required>
+                                                    <input type="text" class="form-control" name="chefid" id="chefid" placeholder="Chef ID:" required>
                                                 </div>
-                                            
                                                 <div class="col-md-12">
-                                                    <button type="submit" class="btn btn--secondary btn--block mt-10" >Insert</button>
-                                                    <!-- <input formaction="page-contacts" type="submit" value="Send Message" name="submit" class="btn btn--secondary btn--block mt-10"> -->
-                                                </div>
-                                                <!-- <div class="col-xs-12 col-sm-12 col-md-12">
-                                                    <div class="contact-result"></div>
-                                                </div> -->
+                                                    <button name="modifydrink" value="adddrink" type="submit" class="btn btn--secondary btn--block mt-10" >Add</button>
+                                                </div> 
                                             </div>
                                         </form>
                                     </div>
                                 </div>
-                                <!-- .col-md-6 end -->
+                             <% } %>
+                             <% if(DELETE != 0){ %>     
+                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                    <div class="contact-form">
+                                        <form  action="/page-modify-drinks" method="post" >
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name="iddrink" id="iddrink" placeholder="Drink ID:" required>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <button name="modifydrink" value="deletedrink" type="submit" class="btn btn--secondary btn--block mt-10" >Delete</button>
+                                                </div> 
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                             <% } %>            
                             </div>
                         </div>
                     </div>

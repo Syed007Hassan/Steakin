@@ -263,8 +263,11 @@ app.post("/page-book-table-", (req, res) => {
   var people = req.body.people;
   var date = req.body.day;
   var time = req.body.time + " PM";
+  var firstname = req.body.fname;
+  var lastname = req.body.lname;
+  var phone = req.body.phone;
   
-  // console.log(` "${people}" "${date}" "${time}" `);
+   console.log(` "${people}" "${date}" "${time}" "${firstname}" "${lastname}" "${phone}" `);
  
 
   var test = `select idBookingAvailable from bookingavailable where BDate = "${date}" AND BTime = "${time}" AND NoOfPeople = "${people}" `;
@@ -277,7 +280,7 @@ app.post("/page-book-table-", (req, res) => {
       if(result!=null){
 
       bid = result[0].idBookingAvailable;
-      console.log(bid);
+      // console.log(bid);
       
       var test1 = `Delete from bookingavailable where idBookingAvailable = ${bid}`;
 
@@ -285,11 +288,21 @@ app.post("/page-book-table-", (req, res) => {
         if (err) {
           console.log(err);
         } else { 
+
+          var test2 = `INSERT INTO bookingsmade (idBookingAvailable,CName,CPhone) VALUES (${bid},"${firstname}","${phone}")`;
+
+          con.query(test2, (err, result) => {
+            if (err) {
+              console.log(err);
+            } else {
+             console.log("hello world");
+            }
+          });
+        
          alert("Booking Confirmed");
           res.render("index");
         } 
     });
-
 
       }
     }
@@ -334,12 +347,28 @@ app.post("/page-admin", function (req, res) {
    
 });
 
-app.get("/page-add-chefs", (req, res) => {
-
-  res.render("page-add-chefs");
+app.post("/page-admin-chefs", (req, res) => {
+  var a = req.body.chefs;
+//  console.log(a);
+  if(a == "add"){
+  res.render("page-modify-chefs", { add: 1, update:0, deletee:0 } );
+  }
+  if(a == "update"){
+  res.render("page-modify-chefs",{add: 0, update:1, deletee:0});
+  }
+  if(a == "delete"){
+  res.render("page-modify-chefs",{add: 0, update:0, deletee:1});
+  }
+  
+  
 });
 
-app.post("/page-add-chefs", (req, res) => {
+app.post("/page-modify-chefs", (req, res) => {
+
+  var type = req.body.modifychefs;
+  console.log(type);
+
+  if(type == "addchefs"){
   const a = req.body.chefid;
   const b = req.body.fname;
   const c = req.body.lname;
@@ -353,12 +382,373 @@ app.post("/page-add-chefs", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.render("page-add-chefs");
+      res.render("admin-success");
     }
   });
+
+  }
+
+  if(type == "updatechefs"){
+    console.log(type);
+    const a = req.body.chefid;
+    const b = req.body.fname;
+    const c = req.body.lname;
+    const d = req.body.Toc;
+    const e = req.body.shopid;
+  
+    var sql1 = `UPDATE CHEFS SET FName = "${b}", LName = "${c}", Toc = "${d}", shopid = "${e}" WHERE idChefs = "${a}"`; 
+    con.query(sql1, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("admin-success");
+      }
+    });
+
+  }
+ 
+  if(type == "deletechefs"){
+    const a = req.body.chefid;
+    var sql2 = `DELETE FROM CHEFS WHERE idChefs = "${a}"`;
+    con.query(sql2, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("admin-success");
+      }
+    });
+
+  }
+ 
 });
 
 
+app.post("/page-admin-reservation", (req, res) => {
+  var a = req.body.reservation;
+//  console.log(a);
+  if(a == "add"){
+  res.render("page-modify-reservation", { add: 1, deletee:0 } );
+  }
+  if(a == "delete"){
+  res.render("page-modify-reservation",{add: 0, deletee:1});
+  }
+  
+});
 
+app.post("/page-modify-reservation", (req, res) => {
+
+  var type = req.body.modifyreservation;
+  //console.log(type);
+
+  if(type == "addreservation"){
+  const a = req.body.people;
+  const b = req.body.day;
+  const c = req.body.time;
+ 
+
+  var sql = `INSERT INTO bookingavailable (NoOfPeople,BDate,BTime) 
+  VALUES ("${a}", "${b}", "${c}");`;
+  
+  con.query(sql, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("admin-success");
+    }
+  });
+   
+}
+
+if(type == "deletereservation"){
+  const a = req.body.bookingid;
+  var sql = `DELETE FROM bookingavailable WHERE idBookingAvailable = "${a}"`;
+  con.query(sql, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("admin-success");
+    }
+  });
+}
+
+});
+
+app.post("/page-admin-breakfast", (req, res) => {
+  var a = req.body.breakfast;
+  // console.log(a);
+  if(a == "add"){
+  res.render("page-modify-breakfast", { add: 1, deletee:0 } );
+  }
+  if(a == "delete"){
+  res.render("page-modify-breakfast",{add: 0, deletee:1});
+  }
+  
+});
+
+app.post("/page-modify-breakfast", (req, res) => {
+ 
+  var type = req.body.modifybreakfast;
+  console.log(type);
+
+  if(type == "addbreakfast"){
+  const a = req.body.idbreakfast;
+  const b = req.body.itemname;
+  const c = req.body.amount;
+  const d = req.body.details;
+  const f = req.body.chefid;
+
+  var sql = `INSERT INTO breakfast (idBreakfast,ItemName,Amount,Details,idChefs) 
+  VALUES ("${a}", "${b}", "${c}", "${d}", "${f}");`;
+
+  con.query(sql, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("admin-success");
+    }
+  });
+
+  }
+
+  if(type == "deletebreakfast"){
+  
+    const a = req.body.idbreakfast;
+
+    var sql = `DELETE FROM breakfast WHERE idBreakfast = "${a}"`;
+    con.query(sql, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("admin-success");
+      }
+    });
+
+
+  }
+
+
+});
+
+  app.post("/page-admin-lunch", (req, res) => {
+    var a = req.body.lunch;
+    // console.log(a);
+    if(a == "add"){
+    res.render("page-modify-lunch", { add: 1, deletee:0 } );
+    }
+    if(a == "delete"){
+    res.render("page-modify-lunch",{add: 0, deletee:1});
+    }
+    
+  });
+
+  app.post("/page-modify-lunch", (req, res) => {
+ 
+    var type = req.body.modifylunch;
+    console.log(type);
+  
+    if(type == "addlunch"){
+    const a = req.body.idlunch;
+    const b = req.body.itemname;
+    const c = req.body.amount;
+    const d = req.body.details;
+    const f = req.body.chefid;
+  
+    var sql = `INSERT INTO lunch (idlunch,ItemName,Amount,Details,idChefs) 
+    VALUES ("${a}", "${b}", "${c}", "${d}", "${f}");`;
+  
+    con.query(sql, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("admin-success");
+      }
+    });
+  
+    }
+  
+    if(type == "deletelunch"){
+    
+      const a = req.body.idlunch;
+  
+      var sql = `DELETE FROM lunch WHERE idlunch = "${a}"`;
+      con.query(sql, (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render("admin-success");
+        }
+      });
+  
+  
+    }
+  
+  });
+
+
+  app.post("/page-admin-dinner", (req, res) => {
+    var a = req.body.dinner;
+    // console.log(a);
+    if(a == "add"){
+    res.render("page-modify-dinner", { add: 1, deletee:0 } );
+    }
+    if(a == "delete"){
+    res.render("page-modify-dinner",{add: 0, deletee:1});
+    }
+    
+  });
+
+
+  app.post("/page-modify-dinner", (req, res) => {
+ 
+    var type = req.body.modifydinner;
+    console.log(type);
+  
+    if(type == "adddinner"){
+    const a = req.body.iddinner;
+    const b = req.body.itemname;
+    const c = req.body.amount;
+    const d = req.body.details;
+    const f = req.body.chefid;
+  
+    var sql = `INSERT INTO dinner (iddinner,ItemName,Amount,Details,idChefs) 
+    VALUES ("${a}", "${b}", "${c}", "${d}", "${f}");`;
+  
+    con.query(sql, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("admin-success");
+      }
+    });
+  
+    }
+  
+    if(type == "deletedinner"){
+    
+      const a = req.body.iddinner;
+  
+      var sql = `DELETE FROM dinner WHERE iddinner = "${a}"`;
+      con.query(sql, (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render("admin-success");
+        }
+      });
+  
+  
+    }
+  
+  });
+
+  app.post("/page-admin-dessert", (req, res) => {
+    var a = req.body.dessert;
+    // console.log(a);
+    if(a == "add"){
+    res.render("page-modify-dessert", { add: 1, deletee:0 } );
+    }
+    if(a == "delete"){
+    res.render("page-modify-dessert",{add: 0, deletee:1});
+    }
+    
+  });
+
+  app.post("/page-modify-dessert", (req, res) => {
+ 
+    var type = req.body.modifydessert;
+    console.log(type);
+  
+    if(type == "adddessert"){
+    const a = req.body.iddessert;
+    const b = req.body.itemname;
+    const c = req.body.amount;
+    const d = req.body.details;
+    const f = req.body.chefid;
+  
+    var sql = `INSERT INTO dessert (iddessert,ItemName,Amount,Details,idChefs) 
+    VALUES ("${a}", "${b}", "${c}", "${d}", "${f}");`;
+  
+    con.query(sql, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("admin-success");
+      }
+    });
+  
+    }
+  
+    if(type == "deletedessert"){
+    
+      const a = req.body.iddessert;
+  
+      var sql = `DELETE FROM dessert WHERE iddessert = "${a}"`;
+      con.query(sql, (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render("admin-success");
+        }
+      });
+  
+  
+    }
+  
+  });
+
+  app.post("/page-admin-drink", (req, res) => {
+    var a = req.body.drink;
+    // console.log(a);
+    if(a == "add"){
+    res.render("page-modify-drinks", { add: 1, deletee:0 } );
+    }
+    if(a == "delete"){
+    res.render("page-modify-drinks",{add: 0, deletee:1});
+    }
+    
+  });
+
+  app.post("/page-modify-drinks", (req, res) => {
+ 
+    var type = req.body.modifydrink;
+    console.log(type);
+  
+    if(type == "adddrink"){
+    const a = req.body.iddrink;
+    const b = req.body.itemname;
+    const c = req.body.amount;
+    const d = req.body.details;
+    const f = req.body.chefid;
+  
+    var sql = `INSERT INTO drinks (idDrinks,ItemName,Amount,Details,idChefs) 
+    VALUES ("${a}", "${b}", "${c}", "${d}", "${f}");`;
+  
+    con.query(sql, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("admin-success");
+      }
+    });
+  
+    }
+  
+    if(type == "deletedrink"){
+    
+      const a = req.body.iddrink;
+  
+      var sql = `DELETE FROM drinks WHERE idDrinks = "${a}"`;
+      con.query(sql, (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render("admin-success");
+        }
+      });
+  
+  
+    }
+  
+  });
 
 export default app;
