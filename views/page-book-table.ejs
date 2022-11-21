@@ -53,9 +53,10 @@
                     <div class="reservation--dec">
                         You can Book a table online easily in just a couple of minutes. We take reservations for lunch and dinner, just check the availability of your table & book it now!
                     </div>
+                    <% if(BookingAvailablee != null ){ %> 
                     <form method="post" action="/page-book-table-">
                         <div class="row">
-                            <% if(BookingAvailablee != 0 ){ %> 
+                            
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <div class="form-select">
                                     <i class="fa fa-angle-down"></i>
@@ -113,10 +114,11 @@
                                 <!--Alert Message-->
                                 <div class="reservation-result"></div>
                             </div>
-                        <% } %> 
+                       
                         </div>
                         <!-- .row end -->
                     </form>
+                    <% } %> 
                     <!-- form end -->
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="text-uppercase text-center">

@@ -48,12 +48,13 @@ app.get("/page-chefs", (req, res) => {
   //res.sendFile(__dirname + "/page-about.html");
   let sql = "SELECT ch.FName, ch.LName, ch.Toc, sh.ShopName FROM CHEFS ch, SHOPS sh WHERE ch.shopid = sh.idShops";
 
-  con.query("SELECT * FROM CHEFS", (err, result) => {
+  con.query(sql, (err, result) => {
     if (err) {
       console.log(err);
     } else {
-      // res.send(result);
+     
       data = result;
+     
     }
   });
 
@@ -224,7 +225,7 @@ app.get("/menu-grid", (req, res) => {
   });
 
   sql = "select dr.ItemName,dr.Amount,dr.Details from drinks dr, todaymenu tm where (dr.idDrinks = tm.idDrinks);"
-
+ 
   con.query(sql,(err,result) => {
     if(err){
       console.log(err);
@@ -375,8 +376,10 @@ app.post("/page-modify-chefs", (req, res) => {
   const d = req.body.Toc;
   const e = req.body.shopid;
 
-  var sql = `INSERT INTO CHEFS (idChefs,FName,LName,Toc,shopid)
-   VALUES ("${a}", "${b}", "${c}", "${d}", "${e}")`;
+  // var sql = `INSERT INTO CHEFS (idChefs,FName,LName,Toc,shopid)
+  //  VALUES ("${a}", "${b}", "${c}", "${d}", "${e}")`;
+
+   var sql = `call MYStoredProcedure5("${a}", "${b}", "${c}", "${d}", "${e}");`;
 
   con.query(sql, (err, result) => {
     if (err) {
@@ -396,7 +399,9 @@ app.post("/page-modify-chefs", (req, res) => {
     const d = req.body.Toc;
     const e = req.body.shopid;
   
-    var sql1 = `UPDATE CHEFS SET FName = "${b}", LName = "${c}", Toc = "${d}", shopid = "${e}" WHERE idChefs = "${a}"`; 
+    // var sql1 = `UPDATE CHEFS SET FName = "${b}", LName = "${c}", Toc = "${d}", shopid = "${e}" WHERE idChefs = "${a}"`;
+    var sql1 = `call UpdateChefs("${a}", "${b}", "${c}", "${d}", "${e}");`;
+    
     con.query(sql1, (err, result) => {
       if (err) {
         console.log(err);
