@@ -414,7 +414,10 @@ app.post("/page-modify-chefs", (req, res) => {
  
   if(type == "deletechefs"){
     const a = req.body.chefid;
-    var sql2 = `DELETE FROM CHEFS WHERE idChefs = "${a}"`;
+    // var sql2 = `DELETE FROM CHEFS WHERE idChefs = "${a}"`;
+
+     var sql2 = `call DeleteChef("${a}");`;
+
     con.query(sql2, (err, result) => {
       if (err) {
         console.log(err);
@@ -451,9 +454,11 @@ app.post("/page-modify-reservation", (req, res) => {
   const c = req.body.time;
  
 
-  var sql = `INSERT INTO bookingavailable (NoOfPeople,BDate,BTime) 
-  VALUES ("${a}", "${b}", "${c}");`;
+  // var sql = `INSERT INTO bookingavailable (NoOfPeople,BDate,BTime) 
+  // VALUES ("${a}", "${b}", "${c}");`;
   
+  var sql = `call AddReservations("${a}", "${b}", "${c}");`;
+
   con.query(sql, (err, result) => {
     if (err) {
       console.log(err);
