@@ -4,7 +4,7 @@ import mysql from 'mysql2';
 const con = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'fast123',
+    password: 'fast',
     database: 'restaurantdb'
 });
 
