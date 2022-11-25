@@ -498,15 +498,16 @@
                                     <div class="row">
                                         <div class="dishes-wrapper">
                                             <% if(TM != null){ %> 
-                                                <% TM.forEach(element => {  %>      
+                                                <% for(let i = 0; i < 5;i++){ %> 
+                                             
                                             <!-- Dish #1 -->
                                             <div class="col-xs-12 col-sm-6 col-md-3 p-0">
                                                 <div class="dish-panel">
                                                     <div class="dish--content">
-                                                        <span class="dish--price">$ <%= element.Amount %></span>
-                                                        <h3 class="dish--title"><%= element.ItemName %></h3>
+                                                        <span class="dish--price">$ <%= TM[i].Amount %></span>
+                                                        <h3 class="dish--title"><%=TM[i].ItemName %></h3>
                                                         <div class="divider--shape-4"></div>
-                                                        <p class="dish--desc"><%= element.Details %></p>
+                                                        <p class="dish--desc"><%= TM[i].Details %></p>
                                                     </div>
                                                     <div class="dish--img">
                                                         <div class="divider--shape-right"></div>
@@ -532,9 +533,9 @@
                                                                                             alt="dish img">
                                                                                         <div class="img-popup-overlay">
                                                                                             <div class="popup--price">
-                                                                                                $ <%= element.Amount %></div>
+                                                                                                $ <%= TM[i].Amount %></div>
                                                                                             <h3 class="popup--title">
-                                                                                                $ <%= element.Amount %></h3>
+                                                                                                $ <%= TM[i].Amount %></h3>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -542,7 +543,7 @@
                                                                                 <div
                                                                                     class="col-xs-12 col-sm-12 col-md-12">
                                                                                     <div class="content-popup">
-                                                                                        <p> <%= element.Details %> </p>
+                                                                                        <p> <%= TM[i].Details %> </p>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -558,7 +559,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <% })%>
+                                            <% }%>
                                             <% } %>  
                                             <!-- .col-md-3 end -->
                                         </div>

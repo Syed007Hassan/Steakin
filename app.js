@@ -265,10 +265,10 @@ app.post("/page-book-table-", (req, res) => {
   var date = req.body.day;
   var time = req.body.time + " PM";
   var firstname = req.body.fname;
-  var lastname = req.body.lname;
+  var lastname = req.body.fname + " " + req.body.lname;
   var phone = req.body.phone;
   
-   console.log(` "${people}" "${date}" "${time}" "${firstname}" "${lastname}" "${phone}" `);
+   //console.log(` "${people}" "${date}" "${time}" "${firstname}" "${lastname}" "${phone}" `);
  
 
   var test = `select idBookingAvailable from bookingavailable where BDate = "${date}" AND BTime = "${time}" AND NoOfPeople = "${people}" `;
@@ -290,13 +290,14 @@ app.post("/page-book-table-", (req, res) => {
           console.log(err);
         } else { 
 
-          var test2 = `INSERT INTO bookingsmade (idBookingAvailable,CName,CPhone) VALUES (${bid},"${firstname}","${phone}")`;
-
-          con.query(test2, (err, result) => {
+          // var test2 = `INSERT INTO bookingsmade (idBookingAvailable,CName,CPhone) VALUES (${bid},"${firstname}","${phone}")`;
+           var test2 ='CREATE TRIGGER `Add_into_bookingsmade` \ AFTER DELETE ON `bookingavailable` \ FOR EACH ROW \ BEGIN \ INSERT INTO `bookingsmade` \ (`idBookingAvailable`,`CName`,`CPhone`) \ values(${bid},"${firstname}","${phone}"); \  END';
+         
+           con.query(test2, (err, result) => {
             if (err) {
               console.log(err);
             } else {
-             console.log("hello world");
+            //  console.log("hello world");
             }
           });
         
@@ -434,12 +435,16 @@ app.post("/page-modify-chefs", (req, res) => {
 app.post("/page-admin-reservation", (req, res) => {
   var a = req.body.reservation;
 //  console.log(a);
-  if(a == "add"){
-  res.render("page-modify-reservation", { add: 1, deletee:0 } );
+    if(a == "add"){
+  res.render("page-modify-reservation", { add: 1, update:0, deletee:0 } );
+  }
+  if(a == "update"){
+  res.render("page-modify-reservation",{add: 0, update:1, deletee:0});
   }
   if(a == "delete"){
-  res.render("page-modify-reservation",{add: 0, deletee:1});
+  res.render("page-modify-reservation",{add: 0, update:0, deletee:1});
   }
+  
   
 });
 
@@ -458,6 +463,23 @@ app.post("/page-modify-reservation", (req, res) => {
   // VALUES ("${a}", "${b}", "${c}");`;
   
   var sql = `call AddReservations("${a}", "${b}", "${c}");`;
+
+  con.query(sql, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("admin-success");
+    }
+  });
+   
+}
+if(type == "updatereservation"){
+  const a = req.body.bookingid;
+  const b = req.body.people;
+  const c = req.body.day;
+  const d = req.body.time;
+ 
+  var sql =`Update bookingavailable set NoOfPeople = "${b}", BDate = "${c}", BTime = "${d}" where idBookingAvailable = "${a}"`;
 
   con.query(sql, (err, result) => {
     if (err) {
@@ -487,11 +509,15 @@ app.post("/page-admin-breakfast", (req, res) => {
   var a = req.body.breakfast;
   // console.log(a);
   if(a == "add"){
-  res.render("page-modify-breakfast", { add: 1, deletee:0 } );
+  res.render("page-modify-breakfast", { add: 1, update:0, deletee:0 } );
+  }
+  if(a == "update"){
+  res.render("page-modify-breakfast",{add: 0, update:1, deletee:0});
   }
   if(a == "delete"){
-  res.render("page-modify-breakfast",{add: 0, deletee:1});
+  res.render("page-modify-breakfast",{add: 0, update:0, deletee:1});
   }
+  
   
 });
 
@@ -519,6 +545,23 @@ app.post("/page-modify-breakfast", (req, res) => {
   });
 
   }
+  if(type == "updatebreakfast"){
+    const a = req.body.idbreakfast;
+    const b = req.body.itemname;
+    const c = req.body.amount;
+    const d = req.body.details;
+    const f = req.body.chefid;
+   
+    var sql = `UPDATE breakfast SET ItemName = "${b}", Amount = "${c}", Details = "${d}", idChefs = "${f}" WHERE idBreakfast = "${a}"`;
+    con.query(sql, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("admin-success");
+      }
+    });
+     
+  }
 
   if(type == "deletebreakfast"){
   
@@ -543,18 +586,21 @@ app.post("/page-modify-breakfast", (req, res) => {
     var a = req.body.lunch;
     // console.log(a);
     if(a == "add"){
-    res.render("page-modify-lunch", { add: 1, deletee:0 } );
-    }
-    if(a == "delete"){
-    res.render("page-modify-lunch",{add: 0, deletee:1});
-    }
+      res.render("page-modify-lunch", { add: 1, update:0, deletee:0 } );
+      }
+      if(a == "update"){
+      res.render("page-modify-lunch",{add: 0, update:1, deletee:0});
+      }
+      if(a == "delete"){
+      res.render("page-modify-lunch",{add: 0, update:0, deletee:1});
+      }
     
   });
 
   app.post("/page-modify-lunch", (req, res) => {
  
     var type = req.body.modifylunch;
-    console.log(type);
+   // console.log(type);
   
     if(type == "addlunch"){
     const a = req.body.idlunch;
@@ -574,6 +620,23 @@ app.post("/page-modify-breakfast", (req, res) => {
       }
     });
   
+    }
+    if(type == "updatelunch"){
+    const a = req.body.idlunch;
+    const b = req.body.itemname;
+    const c = req.body.amount;
+    const d = req.body.details;
+    const f = req.body.chefid;
+
+    var sql = `UPDATE lunch SET ItemName = "${b}", Amount = "${c}", Details = "${d}", idChefs = "${f}" WHERE idlunch = "${a}"`;
+      con.query(sql, (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render("admin-success");
+        }
+      });
+       
     }
   
     if(type == "deletelunch"){
@@ -599,11 +662,14 @@ app.post("/page-modify-breakfast", (req, res) => {
     var a = req.body.dinner;
     // console.log(a);
     if(a == "add"){
-    res.render("page-modify-dinner", { add: 1, deletee:0 } );
-    }
-    if(a == "delete"){
-    res.render("page-modify-dinner",{add: 0, deletee:1});
-    }
+      res.render("page-modify-dinner", { add: 1, update:0, deletee:0 } );
+      }
+      if(a == "update"){
+      res.render("page-modify-dinner",{add: 0, update:1, deletee:0});
+      }
+      if(a == "delete"){
+      res.render("page-modify-dinner",{add: 0, update:0, deletee:1});
+      }
     
   });
 
@@ -632,6 +698,25 @@ app.post("/page-modify-breakfast", (req, res) => {
     });
   
     }
+    
+    if(type == "updatedinner"){
+      const a = req.body.iddinner;
+      const b = req.body.itemname;
+      const c = req.body.amount;
+      const d = req.body.details;
+      const f = req.body.chefid;
+    
+      var sql = `UPDATE dinner SET ItemName = "${b}", Amount = "${c}", Details = "${d}", idChefs = "${f}" WHERE iddinner = "${a}"`;
+    
+      con.query(sql, (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render("admin-success");
+        }
+      });
+    
+      }
   
     if(type == "deletedinner"){
     
@@ -655,11 +740,14 @@ app.post("/page-modify-breakfast", (req, res) => {
     var a = req.body.dessert;
     // console.log(a);
     if(a == "add"){
-    res.render("page-modify-dessert", { add: 1, deletee:0 } );
-    }
-    if(a == "delete"){
-    res.render("page-modify-dessert",{add: 0, deletee:1});
-    }
+      res.render("page-modify-dessert", { add: 1, update:0, deletee:0 } );
+      }
+      if(a == "update"){
+      res.render("page-modify-dessert",{add: 0, update:1, deletee:0});
+      }
+      if(a == "delete"){
+      res.render("page-modify-dessert",{add: 0, update:0, deletee:1});
+      }
     
   });
 
@@ -687,6 +775,24 @@ app.post("/page-modify-breakfast", (req, res) => {
     });
   
     }
+    if(type == "updatedessert"){
+      const a = req.body.iddessert;
+      const b = req.body.itemname;
+      const c = req.body.amount;
+      const d = req.body.details;
+      const f = req.body.chefid;
+    
+    var sql = `UPDATE dessert SET ItemName = "${b}", Amount = "${c}", Details = "${d}", idChefs = "${f}" WHERE iddessert = "${a}"`;
+    
+      con.query(sql, (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render("admin-success");
+        }
+      });
+    
+      }
   
     if(type == "deletedessert"){
     
@@ -710,12 +816,14 @@ app.post("/page-modify-breakfast", (req, res) => {
     var a = req.body.drink;
     // console.log(a);
     if(a == "add"){
-    res.render("page-modify-drinks", { add: 1, deletee:0 } );
-    }
-    if(a == "delete"){
-    res.render("page-modify-drinks",{add: 0, deletee:1});
-    }
-    
+      res.render("page-modify-drinks", { add: 1, update:0, deletee:0 } );
+      }
+      if(a == "update"){
+      res.render("page-modify-drinks",{add: 0, update:1, deletee:0});
+      }
+      if(a == "delete"){
+      res.render("page-modify-drinks",{add: 0, update:0, deletee:1});
+      }
   });
 
   app.post("/page-modify-drinks", (req, res) => {
@@ -742,6 +850,24 @@ app.post("/page-modify-breakfast", (req, res) => {
     });
   
     }
+
+    if(type == "updatedrink"){
+      const a = req.body.iddrink;
+      const b = req.body.itemname;
+      const c = req.body.amount;
+      const d = req.body.details;
+      const f = req.body.chefid;
+    
+     var sql = `UPDATE drinks SET ItemName = "${b}", Amount = "${c}", Details = "${d}", idChefs = "${f}" WHERE idDrinks = "${a}"`;
+      con.query(sql, (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render("admin-success");
+        }
+      });
+    
+      }
   
     if(type == "deletedrink"){
     
@@ -759,6 +885,89 @@ app.post("/page-modify-breakfast", (req, res) => {
   
     }
   
+  } );
+
+  app.post("/page-admin-shops", (req, res) => {
+    var a = req.body.shops;
+    // console.log(a);
+
+    if(a == "add"){
+    res.render("page-modify-shops", { add: 1, update: 0, deletee:0 } );
+    }
+
+    if(a == "update"){
+    res.render("page-modify-shops", { add: 0, update:1, deletee:0 } );
+    }
+
+    if(a == "delete"){
+    res.render("page-modify-shops", { add: 0, update: 0, deletee:1 } );
+    }
+    
   });
+
+  app.post("/page-modify-shops", (req, res) => {
+ 
+    var type = req.body.modifyshops;
+   // console.log(type);
+  
+    if(type == "addshops"){
+
+    const a = req.body.shopid;
+    const b = req.body.shopname;
+    const c = req.body.shopaddress;
+    const d = req.body.shopphoneno;
+    const f = req.body.chefid;
+  
+    var sql = `INSERT INTO shops (idShops,ShopName,ShopAddress,ShopPhoneNo,idChefs) 
+    VALUES ("${a}", "${b}", "${c}", "${d}", "${f}");`;
+    
+    con.query(sql, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("admin-success");
+      }
+    });
+  
+    }
+
+    if(type == "updateshops"){
+     // console.log(type);
+     const a = req.body.shopid;
+     const b = req.body.shopname;
+     const c = req.body.shopaddress;
+     const d = req.body.shopphoneno;
+     const f = req.body.chefid;
+    
+      var sql1 = `UPDATE shops SET ShopName = "${b}", ShopAddress = "${c}", ShopPhoneNo = "${d}", idChefs = "${f}" WHERE idShops = "${a}"`;
+      
+      con.query(sql1, (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render("admin-success");
+        }
+      });
+  
+    }
+  
+    if(type == "deleteshops"){
+    
+      const a = req.body.shopid;
+  
+     var sql = `DELETE FROM shops WHERE idShops = "${a}"`;
+      con.query(sql, (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render("admin-success");
+        }
+      });
+  
+  
+    }
+  
+  });
+
 
 export default app;

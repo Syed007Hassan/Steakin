@@ -15,7 +15,7 @@ app.listen(PORT, () => {
       console.log("Error connecting to Db");
       return;
     }
-    console.log("Db server is connected!");
+    console.log(`Db server is running on PORT: 3306`);
   });
 });
 
