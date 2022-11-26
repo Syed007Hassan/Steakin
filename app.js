@@ -106,8 +106,11 @@ app.post("/page-contacts", (req, res) => {
   const d = req.body.phone;
   const e = req.body.message;
 
-  var sql = `INSERT INTO contactus (FirstName,LastName,Email,Phone,Message)
-   VALUES ("${a}", "${b}", "${c}", "${d}", "${e}")`;
+  let currentDate = new Date().toJSON().slice(0, 10);
+  console.log(currentDate);
+
+  var sql = `INSERT INTO contactus (FirstName,LastName,Email,Phone,Message,Date)
+   VALUES ("${a}", "${b}", "${c}", "${d}", "${e}", "${currentDate}")`;
 
   con.query(sql, (err, result) => {
     if (err) {
@@ -290,8 +293,8 @@ app.post("/page-book-table-", (req, res) => {
           console.log(err);
         } else { 
 
-          // var test2 = `INSERT INTO bookingsmade (idBookingAvailable,CName,CPhone) VALUES (${bid},"${firstname}","${phone}")`;
-           var test2 ='CREATE TRIGGER `Add_into_bookingsmade` \ AFTER DELETE ON `bookingavailable` \ FOR EACH ROW \ BEGIN \ INSERT INTO `bookingsmade` \ (`idBookingAvailable`,`CName`,`CPhone`) \ values(${bid},"${firstname}","${phone}"); \  END';
+          var test2 = `INSERT INTO bookingsmade (idBookingAvailable,CName,CPhone,Date) VALUES (${bid},"${firstname}","${phone}", "${date}")`;
+           //var test2 ='CREATE TRIGGER `Add_into_bookingsmade` \ AFTER DELETE ON `bookingavailable` \ FOR EACH ROW \ BEGIN \ INSERT INTO `bookingsmade` \ (`idBookingAvailable`,`CName`,`CPhone`) \ values(${bid},"${firstname}","${phone}"); \  END';
          
            con.query(test2, (err, result) => {
             if (err) {
