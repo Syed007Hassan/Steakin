@@ -109,7 +109,7 @@ app.post("/page-contacts", (req, res) => {
   let currentDate = new Date().toJSON().slice(0, 10);
   console.log(currentDate);
 
-  var sql = `INSERT INTO contactus (FirstName,LastName,Email,Phone,Message,Date)
+  var sql = `INSERT INTO contactus (FirstName,LastName,Email,Phone,Message,date)
    VALUES ("${a}", "${b}", "${c}", "${d}", "${e}", "${currentDate}")`;
 
   con.query(sql, (err, result) => {
@@ -970,6 +970,32 @@ app.post("/page-modify-breakfast", (req, res) => {
   
     }
   
+  });
+
+  app.post("/admin-Contactus", (req, res) => {
+
+    var a = req.body.date;
+    var sql = `SELECT * FROM adminContacts WHERE date = "${a}"`;
+    con.query(sql, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("admin-Contactus", { data: result});
+      }
+    });
+  });
+
+  app.post("/admin-Reservations", (req, res) => {
+
+    var a = req.body.date1;
+    var sql = `SELECT * FROM adminReservations WHERE date = "${a}"`;
+    con.query(sql, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("admin-Reservations", { data: result});
+      }
+    });
   });
 
 
