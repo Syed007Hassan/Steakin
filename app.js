@@ -293,9 +293,8 @@ app.post("/page-book-table-", (req, res) => {
           console.log(err);
         } else { 
 
-          var test2 = `INSERT INTO bookingsmade (idBookingAvailable,CName,CPhone,Date) VALUES (${bid},"${firstname}","${phone}", "${date}")`;
-           //var test2 ='CREATE TRIGGER `Add_into_bookingsmade` \ AFTER DELETE ON `bookingavailable` \ FOR EACH ROW \ BEGIN \ INSERT INTO `bookingsmade` \ (`idBookingAvailable`,`CName`,`CPhone`) \ values(${bid},"${firstname}","${phone}"); \  END';
-         
+          var test2 = `INSERT INTO bookingsmadeh (idBookingAvailable,CName,CPhone,Date) VALUES (${bid},"${lastname}","${phone}", "${date}")`;
+          
            con.query(test2, (err, result) => {
             if (err) {
               console.log(err);
