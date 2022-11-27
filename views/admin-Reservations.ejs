@@ -1,0 +1,76 @@
+<%- include("partials/header") -%>
+
+
+<% var date = 0 %> 
+<% var result = data%>
+
+<section id="page-title" class="page-title bg-overlay bg-parallax bg-overlay-gradient">
+    <div class="bg-section">
+        <img src="images/page-title/5.jpg" alt="Background" />
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="title title-1 text-center">
+                    <div class="title--content">
+                        <div class="title--subtitle">Ready To Serve</div>
+                        <div class="title--heading">
+                            <h1>Admin Reservations</h1>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <ol class="breadcrumb">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html">Admin</a></li>
+                        <li class="active">Reservations</li>
+                    </ol>
+                    <div class="divider--shape-1down"></div>
+                </div>
+                <!-- .title end -->
+            </div>
+            <!-- .col-md-12 end -->
+        </div>
+        <!-- .row end -->
+    </div>
+    <!-- .container end -->
+</section>
+<!-- #page-title end -->
+
+<div class="container" style="padding: 50px; width: 60%; margin: auto;">
+
+    <div class="tbl-content">
+
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone No.</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% if (result != null) {
+                    
+                %>
+                <% result.forEach(element => { %> 
+              <tr>
+                
+                <td><%= element.Date %></td>
+                <td><%= element.CName %></td>
+                <td><%= element.CPhone %></td>
+              </tr>
+              <%  date = 1; }); %>
+              <% } %>
+              <% if(date == 0){ %>
+                <tr>
+                    <td colspan="3" style="text-align: center;">No Data Found</td>
+                </tr>
+              <% } %>
+               
+            </tbody>
+          </table>
+          
+    </div>
+</div>
+
+<%- include("partials/footer") -%>
