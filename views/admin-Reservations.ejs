@@ -15,7 +15,7 @@
                     <div class="title--content">
                         <div class="title--subtitle">Ready To Serve</div>
                         <div class="title--heading">
-                            <h1>Admin Reservations</h1>
+                            <h1 class="admin-reservation" >Admin Reservations</h1>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -44,6 +44,7 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">Date</th>
+                <th scope="col">Time</th>
                 <th scope="col">Name</th>
                 <th scope="col">Phone No.</th>
               </tr>
@@ -56,6 +57,7 @@
               <tr>
                 
                 <td><%= element.Date %></td>
+                <td><%= element.Time %></td>
                 <td><%= element.CName %></td>
                 <td><%= element.CPhone %></td>
               </tr>

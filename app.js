@@ -100,26 +100,30 @@ app.get("/page-contacts", (req, res) => {
 });
 
 app.post("/page-contacts", (req, res) => {
-  const a = req.body.fname;
-  const b = req.body.lname;
-  const c = req.body.email;
-  const d = req.body.phone;
-  const e = req.body.message;
+  // const a = req.body.fname;
+  // const b = req.body.lname;
+  // const c = req.body.email;
+  // const d = req.body.phone;
+  // const e = req.body.message;
+
+  const { fname, lname, email, phone, message } = req.body;
 
   let currentDate = new Date().toJSON().slice(0, 10);
-  console.log(currentDate);
+ // console.log(currentDate);
 
   var sql = `INSERT INTO contactus (FirstName,LastName,Email,Phone,Message,date)
-   VALUES ("${a}", "${b}", "${c}", "${d}", "${e}", "${currentDate}")`;
+   VALUES ("${fname}", "${lname}", "${email}", "${phone}", "${message}", "${currentDate}")`;
 
   con.query(sql, (err, result) => {
     if (err) {
       console.log(err);
     } else {
+ 
       res.render("page-contacts");
     }
   });
 });
+
 
 app.get("/page-faqs", (req, res) => {
   //res.sendFile(__dirname + "/page-about.html");
@@ -293,7 +297,7 @@ app.post("/page-book-table-", (req, res) => {
           console.log(err);
         } else { 
 
-          var test2 = `INSERT INTO bookingsmadeh (idBookingAvailable,CName,CPhone,Date) VALUES (${bid},"${lastname}","${phone}", "${date}")`;
+          var test2 = `INSERT INTO bookingsmadeh (idBookingAvailable,CName,CPhone,Date,Time) VALUES (${bid},"${lastname}","${phone}", "${date}", "${time}")`;
           
            con.query(test2, (err, result) => {
             if (err) {
