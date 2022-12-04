@@ -301,12 +301,15 @@ app.post("/page-book-table-", (req, res) => {
           
            con.query(test2, (err, result) => {
             if (err) {
+              con.rollback();
               console.log(err);
             } else {
             //  console.log("hello world");
+            con.commit();
             }
           });
         
+
          alert("Booking Confirmed");
           res.render("index");
         } 
