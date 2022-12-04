@@ -46,7 +46,13 @@
                 <div class="reservation-form mt-10 mb-10 text-center">
                     <% if(reservationFlag){ %> 
                     <div class="reservation--dec">
-                       <p>Your Reservations Have been made, We will contact you shortly!</p>
+                       
+                        <p>Your Reservations Have been made, We will contact you shortly!</p>
+                       <script>
+                        setTimeout(function () {
+                           // after 2 seconds
+                           window.location = "/page-book-table";
+                        }, 5000) </script>
                     </div>
                     <% } %>
                     <br>

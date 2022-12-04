@@ -337,7 +337,7 @@ app.post("/page-book-table-", (req, res) => {
 
 app.get("/page-admin", (req, res) => {
 
-  res.render("page-admin");
+  res.render("page-admin",  { LoginFlag: 0 });
 });
 
 app.post("/page-admin", function (req, res) {
@@ -350,7 +350,7 @@ app.post("/page-admin", function (req, res) {
   }
   else
   {
-    res.render("page-admin");
+    res.render("page-admin", { LoginFlag: 1 });
   }
    
 });
@@ -386,7 +386,7 @@ app.post("/page-modify-chefs", (req, res) => {
   // var sql = `INSERT INTO CHEFS (idChefs,FName,LName,Toc,shopid)
   //  VALUES ("${a}", "${b}", "${c}", "${d}", "${e}")`;
 
-   var sql = `call MYStoredProcedure5("${a}", "${b}", "${c}", "${d}", "${e}");`;
+   var sql = `call AddChefs("${a}", "${b}", "${c}", "${d}", "${e}");`;
 
   con.query(sql, (err, result) => {
     if (err) {
