@@ -304,7 +304,6 @@ app.post("/page-book-table-", (req, res) => {
               con.rollback();
               console.log(err);
             } else {
-            //  console.log("hello world");
             con.commit();
             }
           });
@@ -346,15 +345,26 @@ app.get("/page-admin", (req, res) => {
 app.post("/page-admin", function (req, res) {
   const name = req.body.Name;
   const password = req.body.Pass;
+  var x=0;
+  var sql = `Select checkadmin("${name}","${password}")`;
 
-  if(name === "admin" && password === "admin")
-  {
+  con.query(sql, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      x = result[0]["checkadmin(\""+name+"\",\""+password+"\")"];
+
+      if(x == 1){
     res.render("admin-success");
   }
   else
   {
     res.render("page-admin", { LoginFlag: 1 });
   }
+
+    }
+  });
+
    
 });
 
