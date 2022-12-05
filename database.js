@@ -2,10 +2,9 @@
 import mysql from 'mysql2';
 
 const con = mysql.createConnection({
-    host: 'sqldb',
+    host: 'node419078-stakin-restaurant.j.layershift.co.uk:3306/restaurantdb',
     user: 'root',
     password: 'QOXlvy89771',
-    database: 'restaurantdb'
 });
 
 
