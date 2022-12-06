@@ -1,0 +1,79 @@
+<%- include("partials/header") -%>
+<% var flaglogin = LoginFlag %> 
+============================================= -->
+        <section id="page-title" class="page-title bg-overlay bg-parallax bg-overlay-gradient">
+            <div class="bg-section">
+                <img src="images/page-title/6.jpg" alt="Background" />
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="title title-1 text-center">
+                            <div class="title--content">
+                                <div class="title--subtitle">Ready To Serve</div>
+                                <div class="title--heading">
+                                    <h1>Admin Portal</h1>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <ol class="breadcrumb">
+                                <li><a href="index.html">Home</a></li>
+                                
+                                <li class="active">Admin</li>
+                            </ol>
+                            <div class="divider--shape-1down"></div>
+                        </div>
+                        <!-- .title end -->
+                    </div>
+                    <!-- .col-md-12 end -->
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+        <!-- #page-title end -->
+
+        <section id="contact1" class="contact contact-1 " style="width: 40%; margin: auto;">
+            <div class="container" >
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-container">
+                            <div class="row">
+                                <% if(flaglogin != 0){ %> 
+                                    <div class="flaglogin">
+                                    <div class="alert alert-danger" role="alert">
+                                        <strong>Invalid Login Attempt</strong>
+                                    </div>
+                                </div>   
+                                <% } %>
+                                <div class="col-xs-12 col-sm-12 col-md-6">
+                                    <div class="contact-form" >
+                                        <form  action="/page-admin" method="post" >
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name="Name" id="Name" placeholder="Name:" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="password" class="form-control" name="Pass" id="Pass" placeholder="Password: " required>
+                                                </div>
+                                                
+                                                <div class="col-md-12">
+                                                    <button type="submit" name="login" class="btn btn--secondary btn--block mt-10" >Login</button>
+                                                    <!-- <input formaction="page-contacts" type="submit" value="Send Message" name="submit" class="btn btn--secondary btn--block mt-10"> -->
+                                                </div>
+                                                <!-- <div class="col-xs-12 col-sm-12 col-md-12">
+                                                    <div class="contact-result"></div>
+                                                </div> -->
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- .col-md-6 end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- <%- include("partials/footer") -%> -->

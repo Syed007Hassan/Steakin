@@ -1,0 +1,198 @@
+<%- include("partials/header") -%>
+
+        <% var chefs = Shopsname %>
+        <% var c = 0 %>
+        <!-- Page Title #1
+============================================= -->
+        <section id="page-title" class="page-title bg-overlay bg-parallax bg-overlay-gradient">
+            <div class="bg-section">
+                <img src="images/page-title/9.jpg" alt="Background" />
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="title title-1 text-center">
+                            <div class="title--content">
+                                <div class="title--subtitle">Ready To Serve</div>
+                                <div class="title--heading">
+                                    <h1>Our Branches</h1>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <ol class="breadcrumb">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="page-about">about</a></li>
+                                <li class="active">Shops</li>
+                            </ol>
+                            <div class="divider--shape-1down"></div>
+                        </div>
+                        <!-- .title end -->
+                    </div>
+                    <!-- .col-md-12 end -->
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+        <!-- #page-title end -->
+
+        <!-- Team #1
+============================================= -->
+
+        <section id="team1" class="team team-1">
+            <div class="container">
+                <div class="row mb-50">
+                    
+           <% if (chefs != null) { %> 
+           <% chefs.forEach(element => { %>
+                    <!-- Member #1 -->
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="member">
+                            <div class="member-img">
+                                <img src="images/shop/grid/<%=++c%>.jpg" alt="member">
+                                <div class="member-overlay">
+                                    <div class="member-hover">
+                                        <div class="pos-vertical-center">
+                                            <div class="member-social">
+                                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                            </div>
+                                            <!-- .memebr-social end -->
+                                        </div>
+                                        <!-- .pos-vertical-center end -->
+                                    </div>
+                                    <!-- .memebr-hover end -->
+                                </div>
+                                <!-- .memebr-ovelay end -->
+                            </div>
+                            <!-- .member-img end -->
+                            
+                            <div class="member-info">
+                                <h5>
+                                    <%= element.ShopName %>
+                                    <br>
+                                    <%= element.ShopAddress %>
+                                </h5>
+                                <h6><%= element.ShopPhoneNo %></h6>
+                            </div>
+                           
+                            <!-- .member-info end -->
+                        </div>
+                        <!-- .member end -->
+                    </div>
+
+
+                    <!-- .col-md-3 end -->
+                    <%   }); %>
+                    <% } %> 
+                </div>
+                </div>
+                
+        </section>
+       
+        <!-- #team1 end  -->
+        <!-- #team1 end  -->
+
+        <!-- Testimonial #5
+============================================= -->
+        <section id="testimonial5" class="testimonial testimonial-5 bg-overlay bg-parallax bg-overlay-dark text-center">
+            <div class="bg-section">
+                <img src="images/background/2.jpg" alt="Background" />
+            </div>
+            <div class="container">
+                <div class="divider--shape-1up"></div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+                        <div id="testimonial-wide" class="carousel carousel-white" data-slide="1" data-slide-rs="1"
+                            data-autoplay="false" data-nav="false" data-dots="false" data-space="0" data-loop="true"
+                            data-speed="800">
+                            <!-- Testimonial #1 -->
+                            <div class="testimonial-panel">
+                                <div class="testimonial--quote">
+                                    <img src="images/testimonial/chef-hat.png" alt="hat">
+                                </div>
+                                <div class="testimonial--body">
+                                    <p class="color-white">I think the most wonderful thing in the world is another
+                                        chef. I'm always excited about learning new things about food.</p>
+                                </div>
+                                <!-- .testimonial-body end -->
+                                <div class="testimonial--meta">
+                                    <div class="testimonial--author">
+                                        <h4>Michael Luke</h4>
+                                    </div>
+                                </div>
+                                <!-- .testimonial-meta end -->
+                            </div>
+                            <!-- .testimonial-panel end -->
+
+                            <!-- Testimonial #2 -->
+                            <div class="testimonial-panel">
+                                <div class="testimonial--quote">
+                                    <img src="images/testimonial/chef-hat.png" alt="hat">
+                                </div>
+                                <div class="testimonial--body">
+                                    <p class="color-white">I think the most wonderful thing in the world is another
+                                        chef. I'm always excited about learning new things about food.</p>
+                                </div>
+                                <!-- .testimonial-body end -->
+                                <div class="testimonial--meta">
+                                    <div class="testimonial--author">
+                                        <h4>Henry Gabriel</h4>
+                                    </div>
+                                </div>
+                                <!-- .testimonial-meta end -->
+                            </div>
+                            <!-- .testimonial-panel end -->
+
+                            <!-- Testimonial #3 -->
+                            <div class="testimonial-panel">
+                                <div class="testimonial--quote">
+                                    <img src="images/testimonial/chef-hat.png" alt="hat">
+                                </div>
+                                <div class="testimonial--body">
+                                    <p class="color-white">I think the most wonderful thing in the world is another
+                                        chef. I'm always excited about learning new things about food.</p>
+                                </div>
+                                <!-- .testimonial-body end -->
+                                <div class="testimonial--meta">
+                                    <div class="testimonial--author">
+                                        <h4>Leo Jaxon</h4>
+                                    </div>
+                                </div>
+                                <!-- .testimonial-meta end -->
+                            </div>
+                            <!-- .testimonial-panel end -->
+
+                            <!-- Testimonial #4 -->
+                            <div class="testimonial-panel">
+                                <div class="testimonial--quote">
+                                    <img src="images/testimonial/chef-hat.png" alt="hat">
+                                </div>
+                                <div class="testimonial--body">
+                                    <p class="color-white">I think the most wonderful thing in the world is another
+                                        chef. I'm always excited about learning new things about food.</p>
+                                </div>
+                                <!-- .testimonial-body end -->
+                                <div class="testimonial--meta">
+                                    <div class="testimonial--author">
+                                        <h4>Anthony Hunter</h4>
+                                    </div>
+                                </div>
+                                <!-- .testimonial-meta end -->
+                            </div>
+                            <!-- .testimonial-panel end -->
+                        </div>
+                    </div>
+                    <!-- .col-md-12 end -->
+                </div>
+                <!-- .row end -->
+                <div class="divider--shape-1down"></div>
+            </div>
+            <!-- .container end -->
+        </section>
+        <!-- .testimonial5 end -->
+
+        
+        
+        <%- include("partials/footer") -%>

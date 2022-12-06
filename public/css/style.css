@@ -85,6 +85,11 @@ custom.css and it will override the style in this file. You have been warned! :)
 /*------------------------------------*\
     #GLOBAL STYLES
 \*------------------------------------*/
+
+/* .admin-success{
+	
+} */
+
 body,
 html {
 	overflow-x: hidden;
@@ -1765,6 +1770,12 @@ blockquot {
 	cursor: pointer;
 	color: #b8b8b8;
 }
+
+.form-inline {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+  }
 
 .form-select select {
 	line-height: 1;
@@ -5621,6 +5632,7 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
 
 .member .member-info {
 	padding-top: 30px;
+	padding-bottom: 30px;
 }
 
 .member .member-info h5 {
@@ -11706,3 +11718,4 @@ footer .footer--copyright {
 .nav-split li:last-child a {
 	margin-bottom: 0;
 }
+

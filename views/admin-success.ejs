@@ -1,0 +1,163 @@
+<%- include("partials/header") -%>
+
+<section id="page-title" class="page-title bg-overlay bg-parallax bg-overlay-gradient">
+    <div class="bg-section">
+        <img src="images/page-title/4.jpg" alt="Background" />
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="title title-1 text-center">
+                    <div class="title--content">
+                        <div class="title--subtitle admin-portal">Admin Portal</div>
+                        <div class="title--heading">
+                            <h1>Management</h1>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li class="active" ><a href="/page-admin">admin portal</a></li>
+                        <!-- <li class="active">admin portal</li> -->
+                    </ol>
+                    <div class="divider--shape-1down"></div>
+                </div>
+                <!-- .title end -->
+            </div>
+            <!-- .col-md-12 end -->
+        </div>
+        <!-- .row end -->
+    </div>
+    <!-- .container end -->
+</section>
+<!-- #page-title end -->
+
+<section id="contact1" class="contact contact-1 " >
+    <div class="container" >
+        <form  action="#" method="post" >   
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-container">
+                    <div  class="col-4 d-flex justify-content-center text-center" >
+                        <div class="col-xs-12 col-sm-12 col-md-6 ">
+                            <button id="chefsadd" formaction="/page-admin-chefs" name="chefs" value="add" class="btn btn-outline-primary">Add Chefs</button>
+                            <button id="chefsupdate" formaction="/page-admin-chefs" name="chefs" value="update" class="btn btn-outline-primary">Update Chefs</button>
+                            <button id="chefsdelete" formaction="/page-admin-chefs" name="chefs" value="delete" class="btn btn-outline-primary">Delete Chefs</button>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <button formaction="/page-admin-reservation" name="reservation" value="add" class="btn btn-outline-primary">Add Reservation</button>
+                            <button formaction="/page-admin-reservation" name="reservation" value="update" class="btn btn-outline-primary">Update Reservation</button>
+                            <button formaction="/page-admin-reservation" name="reservation" value="delete" class="btn btn-outline-primary">Delete Reservation</button>
+                        </div>                 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-container">
+                    <div  class="col-4 d-flex justify-content-center text-center" >
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <button formaction="/page-admin-breakfast" name="breakfast" value="add" class="btn btn-outline-primary">Add Breakfast</button>
+                            <button formaction="/page-admin-breakfast" name="breakfast" value="update" class="btn btn-outline-primary">Update Breakfast</button>
+                            <button formaction="/page-admin-breakfast" name="breakfast" value="delete" class="btn btn-outline-primary">Delete Breakfast</button>                           
+                        </div>                              
+                    </div>    
+                </div>
+                <div class="form-container">
+                    <div  class="col-4 d-flex justify-content-center text-center" >
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <button formaction="/page-admin-lunch" name="lunch" value="add" class="btn btn-outline-primary">Add Lunch</button>
+                            <button formaction="/page-admin-lunch" name="lunch" value="update" class="btn btn-outline-primary">Update Lunch</button>
+                            <button formaction="/page-admin-lunch" name="lunch" value="delete" class="btn btn-outline-primary">Delete Lunch</button>     
+                        </div>                              
+                    </div>    
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="form-container">
+                    <div  class="col-4 d-flex justify-content-center text-center" >
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <button formaction="/page-admin-dinner" name="dinner" value="add" class="btn btn-outline-primary">Add Dinner</button>
+                            <button formaction="/page-admin-dinner" name="dinner" value="update" class="btn btn-outline-primary">Update Dinner</button>
+                            <button formaction="/page-admin-dinner" name="dinner" value="delete" class="btn btn-outline-primary">Delete Dinner</button>
+                            
+                        </div>
+                               
+                    </div>    
+                </div>
+                <div class="form-container">
+                    <div  class="col-4 d-flex justify-content-center text-center" >
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <button id="dessertadd" formaction="/page-admin-dessert" name="dessert" value="add" class="btn btn-outline-primary">Add Dessert</button>
+                            <button id="dessertupdate" formaction="/page-admin-dessert" name="dessert" value="update" class="btn btn-outline-primary">Update Dessert</button>
+                            <button id="dessertdelete" formaction="/page-admin-dessert" name="dessert" value="delete" class="btn btn-outline-primary">Delete Dessert</button>
+                            
+                        </div>
+                               
+                    </div>    
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="form-container">
+                    <div  class="col-4 d-flex justify-content-center text-center" >
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <button formaction="/page-admin-drink" name="drink" value="add" class="btn btn-outline-primary">Add Drink</button>
+                            <button formaction="/page-admin-drink" name="drink" value="update" class="btn btn-outline-primary">Update Drink</button>
+                            <button formaction="/page-admin-drink" name="drink" value="delete" class="btn btn-outline-primary">Delete Drink</button>
+                            
+                        </div>
+                               
+                    </div>    
+                </div>
+                <div class="form-container">
+                    <div  class="col-4 d-flex justify-content-center text-center" >
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <button formaction="/page-admin-shops" name="shops" value="add" class="btn btn-outline-primary">Add Shops</button>
+                            <button formaction="/page-admin-shops" name="shops" value="update" class="btn btn-outline-primary">Update Shops</button>
+                            <button formaction="/page-admin-shops" name="shops" value="delete" class="btn btn-outline-primary">Delete Shops</button>   
+                        </div>                   
+                    </div>    
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="form-container">
+                    <div  class="col-4 d-flex justify-content-center text-center" >
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="date" id="date" placeholder="Enter Date:">
+                            </div>
+                            <button formaction="/admin-Contactus" name="contact" value="contact" class="btn btn-outline-primary" style="margin-left: -180px;">Contact Us</button>
+                        </div>                   
+                    </div>    
+                </div>
+
+                <div class="form-container">
+                    <div  class="col-4 d-flex justify-content-center text-center" >
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="date1" id="date1" placeholder="Enter Date:">
+                            </div>
+                            <button formaction="/admin-Reservations" name="reservationcheck" value="reservation" class="btn btn-outline-primary" style="margin-left: -180px;">Reservations</button>
+                        </div>                   
+                    </div>    
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</section>
+
+
+<%- include("partials/footer") -%>
