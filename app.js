@@ -46,7 +46,7 @@ app.get("/home", (req, res) => {
 
 app.get("/page-chefs", (req, res) => {
   //res.sendFile(__dirname + "/page-about.html");
-  let sql = "SELECT ch.FName, ch.LName, ch.Toc, sh.ShopName FROM CHEFS ch, SHOPS sh WHERE ch.shopid = sh.idShops";
+  let sql = "SELECT ch.FName, ch.LName, ch.Toc, sh.ShopName FROM chefs ch, shops sh WHERE ch.shopid = sh.idShops";
 
   con.query(sql, (err, result) => {
     if (err) {
@@ -63,7 +63,7 @@ app.get("/page-chefs", (req, res) => {
 
 app.get("/allchefs", (req,res) => {
  
-  let sql = "SELECT * FROM CHEFS";
+  let sql = "SELECT * from chefs";
 
   con.query(sql, (err, result) => {
     if (err) {
@@ -80,7 +80,7 @@ app.get("/allchefs", (req,res) => {
 
 app.get("/page-shops", (req, res) => {
   //res.sendFile(__dirname + "/page-about.html");
-  let sql = "SELECT * FROM SHOPS";
+  let sql = "SELECT * FROM shops";
 
   con.query(sql, (err, result) => {
     if (err) {
@@ -322,7 +322,7 @@ app.post("/page-book-table-", (req, res) => {
 
  
 
-  let sql4 = "SELECT * from BOOKINGAVAILABLE";
+  let sql4 = "SELECT * from bookingavailable";
 
   con.query(sql4, (err, result) => {
     if (err) {
