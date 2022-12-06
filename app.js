@@ -254,7 +254,7 @@ app.get("/menu-grid", (req, res) => {
 });
 
 app.get("/page-book-table", (req, res) => {
-  let sql4 = "SELECT * from BOOKINGAVAILABLE";
+  let sql4 = "SELECT * from bookingavailable";
 
   con.query(sql4, (err, result) => {
     if (err) {
