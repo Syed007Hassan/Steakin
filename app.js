@@ -46,7 +46,7 @@ app.get("/home", (req, res) => {
 
 app.get("/page-chefs", (req, res) => {
   //res.sendFile(__dirname + "/page-about.html");
-  let sql = "SELECT ch.FName, ch.LName, ch.Toc, sh.ShopName FROM CHEFS ch, SHOPS sh WHERE ch.shopid = sh.idShops";
+  let sql = "SELECT ch.FName, ch.LName, ch.Toc, sh.ShopName FROM chefs ch, shops sh WHERE ch.shopid = sh.idShops";
 
   con.query(sql, (err, result) => {
     if (err) {
@@ -63,7 +63,7 @@ app.get("/page-chefs", (req, res) => {
 
 app.get("/allchefs", (req,res) => {
  
-  let sql = "SELECT * FROM CHEFS";
+  let sql = "SELECT * from chefs";
 
   con.query(sql, (err, result) => {
     if (err) {
@@ -80,7 +80,7 @@ app.get("/allchefs", (req,res) => {
 
 app.get("/page-shops", (req, res) => {
   //res.sendFile(__dirname + "/page-about.html");
-  let sql = "SELECT * FROM SHOPS";
+  let sql = "SELECT * FROM shops";
 
   con.query(sql, (err, result) => {
     if (err) {
@@ -133,18 +133,18 @@ app.get("/page-faqs", (req, res) => {
 app.get("/menu-grid", (req, res) => {
   //res.sendFile(__dirname + "/page-about.html");
 
-  let sql = "SELECT * from Breakfast";
+  let sql = "select bf.ItemName,bf.Amount,bf.Details, ch.Fname from breakfast bf, chefs ch where (ch.idChefs = bf.idChefs);" ;
 
   con.query(sql, (err, result) => {
     if (err) {
       console.log(err);
     } else {
       breakfastmenu = result;
-      // console.log(result);
+
     }
   });
 
-  let sql2 = "SELECT * from Lunch";
+  let sql2 = "select ln.ItemName,ln.Amount,ln.Details, ch.Fname from lunch ln, chefs ch where (ch.idChefs = ln.idChefs);" ;
   con.query(sql2, (err, result) => {
     if (err) {
       console.log(err);
@@ -154,7 +154,7 @@ app.get("/menu-grid", (req, res) => {
     }
   });
 
-  let sql3 = "SELECT * from Dinner";
+  let sql3 = "select dn.ItemName,dn.Amount,dn.Details, ch.Fname from dinner dn, chefs ch where (ch.idChefs = dn.idChefs);" ;
 
   con.query(sql3, (err, result) => {
     if (err) {
@@ -165,7 +165,7 @@ app.get("/menu-grid", (req, res) => {
     }
   });
 
-  let sql4 = "SELECT * from Dessert";
+  let sql4 = "select dsr.ItemName,dsr.Amount,dsr.Details, ch.Fname from dessert dsr, chefs ch where (ch.idChefs = dsr.idChefs);" ;
 
   con.query(sql4, (err, result) => {
     if (err) {
@@ -176,7 +176,7 @@ app.get("/menu-grid", (req, res) => {
     }
   });
 
-  let sql5 = "SELECT * from Drinks";
+  let sql5 = "select dr.ItemName,dr.Amount,dr.Details, ch.Fname from drinks dr, chefs ch where (ch.idChefs = dr.idChefs);" ;
 
   con.query(sql5, (err, result) => {
     if (err) {
@@ -254,7 +254,7 @@ app.get("/menu-grid", (req, res) => {
 });
 
 app.get("/page-book-table", (req, res) => {
-  let sql4 = "SELECT * from BOOKINGAVAILABLE";
+  let sql4 = "SELECT * from bookingavailable";
 
   con.query(sql4, (err, result) => {
     if (err) {
@@ -284,13 +284,16 @@ app.post("/page-book-table-", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-    
+       
       if(result!=null){
 
       bid = result[0].idBookingAvailable;
       // console.log(bid);
       
       var test1 = `Delete from bookingavailable where idBookingAvailable = ${bid}`;
+
+      con.beginTransaction(function(err) {
+        if (err) { con.rollback(); } 
 
       con.query(test1,(err, result) => {
         if (err) {
@@ -301,26 +304,25 @@ app.post("/page-book-table-", (req, res) => {
           
            con.query(test2, (err, result) => {
             if (err) {
-              con.rollback();
               console.log(err);
             } else {
             con.commit();
             }
           });
-        
-
          alert("Booking Confirmed");
           res.render("index");
         } 
     });
 
+      });
       }
+      
     }
   });
 
  
 
-  let sql4 = "SELECT * from BOOKINGAVAILABLE";
+  let sql4 = "SELECT * from bookingavailable";
 
   con.query(sql4, (err, result) => {
     if (err) {
@@ -352,8 +354,9 @@ app.post("/page-admin", function (req, res) {
     if (err) {
       console.log(err);
     } else {
+      
       x = result[0]["checkadmin(\""+name+"\",\""+password+"\")"];
-
+      
       if(x == 1){
     res.render("admin-success");
   }
@@ -419,7 +422,8 @@ app.post("/page-modify-chefs", (req, res) => {
     const d = req.body.Toc;
     const e = req.body.shopid;
   
-    // var sql1 = `UPDATE CHEFS SET FName = "${b}", LName = "${c}", Toc = "${d}", shopid = "${e}" WHERE idChefs = "${a}"`;
+    // var sql1 = `UPDATE CHEFS SET FName = "${b}", LName = "${c}",
+    // Toc = "${d}", shopid = "${e}" WHERE idChefs = "${a}"`;
     var sql1 = `call UpdateChefs("${a}", "${b}", "${c}", "${d}", "${e}");`;
     
     con.query(sql1, (err, result) => {
@@ -480,7 +484,6 @@ app.post("/page-modify-reservation", (req, res) => {
 
   // var sql = `INSERT INTO bookingavailable (NoOfPeople,BDate,BTime) 
   // VALUES ("${a}", "${b}", "${c}");`;
-  
   var sql = `call AddReservations("${a}", "${b}", "${c}");`;
 
   con.query(sql, (err, result) => {
