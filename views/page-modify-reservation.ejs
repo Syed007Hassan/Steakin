@@ -49,7 +49,7 @@
                                         <form  action="/page-modify-reservation" method="post" >
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name="people" id="people" placeholder="Number of People:" required>
+                                                    <input type="number" min="2" max="30" class="form-control" name="people" id="people" placeholder="Number of People:" required>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name="day" id="day" placeholder="Date:" required>
@@ -71,10 +71,10 @@
                                         <form  action="/page-modify-reservation" method="post" >
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name="bookingid" id="bookingid" placeholder="Booking ID:" required>
+                                                    <input type="number" min="0" class="form-control" name="bookingid" id="bookingid" placeholder="Booking ID:" required>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name="people" id="people" placeholder="Number of People:" required>
+                                                    <input type="num" min="2" max="30" class="form-control" name="people" id="people" placeholder="Number of People:" required>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name="day" id="day" placeholder="Date:" required>
@@ -96,7 +96,7 @@
                                         <form  action="/page-modify-reservation" method="post" >
                                             <div class="row">
                                                 <div class="col-md-6" style="margin-left: 14rem;">
-                                                    <input type="text" class="form-control" name="bookingid" id="bookingid" placeholder="Booking ID:" required>
+                                                    <input type="number" min="0" class="form-control" name="bookingid" id="bookingid" placeholder="Booking ID:" required>
                                                 </div>
                                                 <div class="col-md-6" style="margin-left: 14rem;">
                                                     <button name="modifyreservation" value="deletereservation" type="submit" class="btn btn--secondary btn--block mt-10" >Delete</button>
