@@ -12,6 +12,7 @@ app.listen(PORT, () => {
 
   con.connect((err) => {
     if (err) {
+
       console.log("Error connecting to Db");
       return;
     }
