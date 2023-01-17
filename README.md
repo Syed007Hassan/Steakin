@@ -4,7 +4,7 @@
 ### 1. ABSTRACT: 
 The system provides convenience to the customer and the staff. It provides a better communication platform. This System sets up a menu online and customers can easily access the website from any browser with a simple mouse click. By using the system, it would be feasible to store data on chefs, menu items, customer queries, reservations available and different shops. The website also allows customers to easily reserve/book a table without visiting the restaurant or making a phone call. The user’s information which the website requires for reservations and contact facilitates is also kept private. Customers can view our menu, items and prices on the website before visiting us. To build a trustworthy relationship with the customers, we also provide the details of our chefs directly on the website.
 
-### 2. PROBLEM STATEMENT/MOTIVATION:
+### 2. PROBLEM STATEMENT:
  A restaurant SteakIn wants to have an online website where they can provide a platform for the customers to contact the restaurant or send a message if they have any queries, etc. SteakIn currently has a manual system in which the customers have to make a phone call and then wait for the administration to entertain the call. This is time-consuming for the customers so Steakin wants a website where the customers can directly reserve a seat. Furthermore, their management saves everything on paper which is time-consuming and less secure so they also want a management system where they can also store their data directly from the interface and also view the data from there directly. It will save the time of the administrator tremendously.
 
 
@@ -146,6 +146,15 @@ _**idContactUs**_ | Fname | LName | Email | Phone | Message
 * VSCODE IDE
 * HYPER TERMINAL
 * MYSQL WORKBENCH
+
+### 8. HOW TO RUN?
+`git clone https://github.com/Syed007Hassan/Steakin.git `
+
+`cd (to the cloned directory)`
+
+`npm i`
+
+`nodemon server.js`
 
 
 
