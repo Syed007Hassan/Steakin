@@ -364,7 +364,7 @@ DECLARE ispresent INT;
 DECLARE us VARCHAR(20);
 set ispresent = FALSE;
 Select usernamee into us from admins where passwordd = pass;
-IF (usern = us) THEN
+IF (usern = us) THEN`library`
 set ispresent = true;
   end if;
   RETURN(ispresent);
